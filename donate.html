@@ -206,47 +206,80 @@
 
   <!-- PAYMENT OPTIONS – POSTER STYLE -->
   <section class="page-section">
-    <h2>
-      <span class="lang-en">How to Donate</span>
-      <span class="lang-hi">कैसे दान करें</span>
-    </h2>
+  <h2>
+    <span class="lang-en">How to Donate</span>
+    <span class="lang-hi">कैसे दान करें</span>
+  </h2>
 
-    <div class="donate-layout" style="display:flex; flex-wrap:wrap; gap:1.5rem; align-items:flex-start;">
-      <!-- QR / Visual block -->
-      <div style="flex:0 0 220px; max-width:260px;">
-        <p class="lang-en"><strong>Scan to Donate (UPI)</strong></p>
-        <p class="lang-hi"><strong>स्कैन करके दान करें (UPI)</strong></p>
+  <div class="donate-layout" style="display:flex; flex-wrap:wrap; gap:1.5rem; align-items:flex-start;">
 
-        <!-- replace src with your actual QR code image -->
-        <img src="img/donate-qr.png" alt="UPI QR code for NISA donations" style="width:100%; max-width:220px; border-radius:12px; border:1px solid #e0e0e0; background:#fff;" />
+    <!-- QR + UPI BLOCK -->
+    <div style="flex:0 0 220px; max-width:260px;">
+      <p class="lang-en"><strong>Scan to Donate (UPI)</strong></p>
+      <p class="lang-hi"><strong>स्कैन करके दान करें (UPI)</strong></p>
 
-        <p style="margin-top:0.6rem;">
-          <span class="lang-en">UPI ID: <strong>42926952678@SBI</strong></span>
-          <span class="lang-hi">यूपीआई आईडी: <strong>42926952678@SBI</strong></span>
-        </p>
-      </div>
+      <img src="img/donate-qr.png"
+           alt="UPI QR code for NISA donations"
+           style="width:100%; max-width:220px; border-radius:12px; border:1px solid #e0e0e0; background:#fff;" />
 
-      <!-- Text + optional online gateway -->
-      <div style="flex:1 1 260px; min-width:240px;">
-        <ul class="bullet-list">
-          <li>
-            <span class="lang-en"><strong>UPI:</strong> Send via any UPI app using the QR code or UPI ID.</span>
-            <span class="lang-hi"><strong>यूपीआई:</strong> किसी भी UPI ऐप से क्यूआर कोड या UPI आईडी का उपयोग करके दान करें।</span>
-          </li>
-          <li>
-            <span class="lang-en"><strong>Bank Transfer / Online Payment:</strong> Coming soon via secure gateway.</span>
-            <span class="lang-hi"><strong>बैंक ट्रांसफ़र / ऑनलाइन पेमेंट:</strong> शीघ्र ही सुरक्षित गेटवे के माध्यम से उपलब्ध होगा।</span>
-          </li>
-        </ul>
-
-        <!-- Optional future Razorpay button -->
-        <button id="rzp-donate-btn" class="btn btn-primary" style="margin-top:1rem;">
-          <span class="lang-en">Donate Online (Coming Soon)</span>
-          <span class="lang-hi">ऑनलाइन दान करें (जल्द आ रहा है)</span>
-        </button>
-      </div>
+      <p style="margin-top:0.6rem;">
+        <span class="lang-en">UPI ID: <strong>42926952678@SBI</strong></span>
+        <span class="lang-hi">यूपीआई आईडी: <strong>42926952678@SBI</strong></span>
+      </p>
     </div>
-  </section>
+
+    <!-- BANK ACCOUNT + PAYMENT OPTIONS -->
+    <div style="flex:1 1 260px; min-width:260px;">
+
+      <ul class="bullet-list">
+
+        <li>
+          <span class="lang-en"><strong>UPI:</strong> Donate through any UPI app using the QR or UPI ID.</span>
+          <span class="lang-hi"><strong>यूपीआई:</strong> किसी भी UPI ऐप से QR या UPI आईडी का उपयोग करके दान करें।</span>
+        </li>
+
+        <!-- BANK TRANSFER DETAILS -->
+        <li style="margin-top:0.8rem;">
+          <span class="lang-en"><strong>Bank Transfer:</strong></span>
+          <span class="lang-hi"><strong>बैंक ट्रांसफ़र:</strong></span>
+
+          <br /><br />
+
+          <span class="lang-en">
+            <strong>Account Name:</strong> Suhale Foundation<br>
+            <strong>Account Number:</strong> 42926852678<br>
+            <strong>IFSC Code:</strong> SBIN0050696<br>
+            <strong>Bank:</strong> State Bank of India (SBI)<br>
+            <strong>Branch:</strong> SBI Stadium Shopping Centre Branch, Jodhpur
+          </span>
+
+          <span class="lang-hi">
+            <strong>खाता नाम:</strong> सुहैले फाउंडेशन<br>
+            <strong>खाता संख्या:</strong> 42926852678<br>
+            <strong>आईएफ़एससी कोड:</strong> SBIN0050696<br>
+            <strong>बैंक:</strong> भारतीय स्टेट बैंक (SBI)<br>
+            <strong>शाखा:</strong> एसबीआई स्टेडियम शॉपिंग सेंटर शाखा, जोधपुर
+          </span>
+        </li>
+
+        <!-- UPCOMING ONLINE PAYMENT -->
+        <li style="margin-top:0.8rem;">
+          <span class="lang-en"><strong>Online Payment:</strong> Secure payment gateway coming soon.</span>
+          <span class="lang-hi"><strong>ऑनलाइन भुगतान:</strong> सुरक्षित भुगतान गेटवे जल्द आ रहा है।</span>
+        </li>
+
+      </ul>
+
+      <!-- FUTURE RAZORPAY BUTTON -->
+      <button id="rzp-donate-btn" class="btn btn-primary" style="margin-top:1rem;">
+        <span class="lang-en">Donate Online (Coming Soon)</span>
+        <span class="lang-hi">ऑनलाइन दान करें (जल्द आ रहा है)</span>
+      </button>
+
+    </div>
+
+  </div>
+</section>
 
   <!-- TAX BENEFITS -->
   <section class="page-section">

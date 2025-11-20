@@ -1,4 +1,49 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {  
+  /* =========================================
+     1. INITIALIZE LENIS
+     ========================================= */
+  const lenis = new Lenis({
+    duration: 1.2, // Speed of the scroll (higher = smoother/slower)
+    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // easing function
+    orientation: 'vertical', 
+    gestureOrientation: 'vertical',
+    smoothWheel: true,
+    wheelMultiplier: 1,
+    smoothTouch: false, // keeping false usually feels more natural on mobile
+    touchMultiplier: 2,
+  });
+
+  // Standard Lenis Loop (required for it to work)
+  function raf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+  }
+  requestAnimationFrame(raf);
+
+
+  /* =========================================
+     2. UPDATE ANCHOR LINKS TO USE LENIS
+     ========================================= */
+  // REPLACES your old "Smooth scroll for in-page anchors" block
+  document.body.addEventListener("click", (e) => {
+    const link = e.target.closest("a[href^='#']");
+    if (!link) return;
+
+    const id = link.getAttribute("href").slice(1);
+    if (!id) return; // e.g. href="#"
+
+    const target = document.getElementById(id);
+    if (!target) return;
+
+    e.preventDefault();
+    
+    // Use Lenis to scroll instead of native method
+    lenis.scrollTo(target, {
+      offset: 0, // Adjust this if your sticky header covers content (e.g. -80)
+      duration: 1.5 // Optional: make programatic scrolls slightly slower/elegant
+    });
+  });
+
   /* ===== Mobile nav toggle ===== */
   const navToggle = document.querySelector(".nav-toggle");
   const navLinks = document.querySelector(".nav-links");
@@ -103,20 +148,7 @@ if (contactForm) {
     yearEl.textContent = new Date().getFullYear();
   }
 
-  /* ===== Smooth scroll for in-page anchors ===== */
-  document.body.addEventListener("click", (e) => {
-    const link = e.target.closest("a[href^='#']");
-    if (!link) return;
-
-    const id = link.getAttribute("href").slice(1);
-    const target = document.getElementById(id);
-    if (!target) return;
-
-    e.preventDefault();
-    target.scrollIntoView({ behavior: "smooth", block: "start" });
-  });
-
-    /* ===== GALLERY LIGHTBOX ===== */
+  /* ===== GALLERY LIGHTBOX ===== */
   const galleryImages = document.querySelectorAll(".gallery-item img");
   const lightbox = document.getElementById("lightbox");
   const lightboxImg = document.getElementById("lightbox-image");

@@ -5,6 +5,28 @@
    White:   #FFFFFF
 */
 
+/* ======== LENIS RECOMMENDED CSS ======== */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+/* ======================================= */
+
 :root {
   --primary: #0141a2;
   --primary-soft: #e1ecff;
@@ -27,10 +49,6 @@
 *::before,
 *::after {
   box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
 }
 
 body {
@@ -357,7 +375,7 @@ html:not([data-lang]) .lang-hi {
   min-height: 90vh;
   /* We remove the background image from here */
   overflow: hidden; /* Critical: hides the edges of the moving image */
-  
+  background-color: #0141a2;
   display: flex;
   align-items: flex-end;
   justify-content: flex-start;

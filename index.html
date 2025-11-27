@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <title>NISA – Empowering Women | महिला सशक्तिकरण</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body class="home">
@@ -13,7 +14,7 @@
   
   <div class="header-side header-left">
     <a href="index.html" class="brand">
-      <img src="img/NisaLogoBlue.png" alt="NISA logo" class="brand-logo"/>
+      <img src="img/NisaLogoBlue.webp" alt="NISA logo" class="brand-logo"/>
     </a>
   </div>
 
@@ -244,6 +245,10 @@
   <main>
     <!-- HERO -->
     <section class="hero" id="hero">
+      <video class="hero-bg-video" autoplay muted loop playsinline poster="img/meeting-2.jpg">
+        <source src="img/hero-video.mp4" type="video/mp4">
+        <img src="img/meeting-2.jpg" alt="Hero Background">
+      </video>
       <div class="hero-inner">
         <div class="hero-text">
           <!-- Heading -->
@@ -271,24 +276,58 @@
 
     <!-- SHORT ABOUT -->
     <section class="home-section" id="who-we-are">
-      <div class="section-header">
-        <h2 class="lang-en">Who We Are</h2>
-        <h2 class="lang-hi">हम कौन हैं</h2>
-      </div>
-
       <div class="intro-text">
-        <p class="lang-en">
-        NISA is a unit of the Suhale Foundation working with women from low-income neighbourhoods in Jodhpur who face educational,
-        social and economic barriers. We begin by listening, then co-create solutions rooted in trust, proximity and dignity.
-        </p>
-        <p class="lang-hi">
-          नीसा, सुहैले फाउंडेशन की एक इकाई है, जो जोधपुर के कम आय वाले बस्तियों में उन महिलाओं के साथ काम करता है जो शैक्षिक, सामाजिक और आर्थिक
-          चुनौतियों का सामना करती हैं। हमारा काम सुनने से शुरू होता है और भरोसे, नज़दीकी और गरिमा पर आधारित समाधान बनाता है।
-        </p>
-        <a href="about.html" class="text-link">
-          <span class="lang-en">Read our story →</span>
-          <span class="lang-hi">हमारी कहानी पढ़ें →</span>
-        </a>
+    
+        <!-- ENGLISH LINES -->
+        <div class="lang-en big-statement">
+          <div class="line-mask">
+            <span class="line-reveal delay-1">
+              Join us in our mission to uplift women
+            </span>
+          </div>
+          <div class="line-mask">
+            <span class="line-reveal delay-2">
+              through meaningful action, powerful stories,
+            </span>
+          </div>
+          <div class="line-mask">
+            <span class="line-reveal delay-3">
+              and life-changing community impact.
+            </span>
+          </div>
+        </div>
+
+        <!-- HINDI LINES -->
+        <div class="lang-hi big-statement">
+          <div class="line-mask">
+            <span class="line-reveal delay-1">
+              सार्थक कार्रवाई, प्रभावशाली कहानियों और
+            </span>
+          </div>
+          <div class="line-mask">
+            <span class="line-reveal delay-2">
+              जीवन बदलने वाले सामुदायिक प्रभाव के माध्यम से
+            </span>
+          </div>
+          <div class="line-mask">
+            <span class="line-reveal delay-3">
+              महिलाओं के उत्थान के हमारे मिशन में शामिल हों।
+            </span>
+          </div>
+        </div>
+
+        <!-- BUTTON (already using .line-reveal correctly) -->
+        <div class="mask-container" style="margin-top: 2.5rem;">
+          <div class="line-mask">
+            <div class="line-reveal delay-4" style="padding-bottom: 5px;">
+              <a href="about.html" class="btn btn-primary">
+                <span class="lang-en">Our Mission &amp; Story</span>
+                <span class="lang-hi">हमारा मिशन और कहानी</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
 

@@ -128,24 +128,39 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   /* =========================================
-     4. HEADER SCROLL STATE (.scrolled on body)
+     4. HEADER SCROLL STATE & OVERLAP DETECTION
      ========================================= */
   (function setupHeaderScrollState() {
     const hero = document.getElementById("hero");
     const header = document.querySelector(".split-header");
+    const heroText = document.querySelector(".hero-text"); // Select the text container
+
     if (!header) return;
 
     function updateHeader() {
-      // If there's no hero (other pages), just use a small threshold
+      // 1. NON-HOME PAGES: Simple scroll check
       if (!hero) {
         if (window.scrollY > 50) body.classList.add("scrolled");
         else body.classList.remove("scrolled");
         return;
       }
 
-      const heroRect = hero.getBoundingClientRect();
       const headerHeight = header.offsetHeight || 0;
-      // When the bottom of the hero is above the header, we consider it "scrolled"
+      
+      // 2. OVERLAP LOGIC (Fades logo/lang earlier)
+      // Check if the Hero Text is hitting the bottom of the header
+      if (heroText) {
+        const textRect = heroText.getBoundingClientRect();
+        // Add a small buffer (e.g., 20px) so it fades just before touching
+        if (textRect.top <= headerHeight + 20) {
+          body.classList.add("overlap-text");
+        } else {
+          body.classList.remove("overlap-text");
+        }
+      }
+
+      // 3. SCROLLED LOGIC (Standard "Past Hero" state)
+      const heroRect = hero.getBoundingClientRect();
       const isPastHero = heroRect.bottom - headerHeight <= 0;
 
       if (isPastHero) {
@@ -354,3 +369,26 @@ document.addEventListener("DOMContentLoaded", () => {
   })();
 
 });
+
+/* =========================================
+   11. SCROLL REVEAL FOR WHO-WE-ARE LINES
+   ========================================= */
+(function setupLineReveal() {
+  const items = Array.from(document.querySelectorAll(".line-reveal"));
+  if (!items.length) return;
+
+  function onScroll() {
+    const triggerY = window.innerHeight * 0.85; // reveal when 15% above bottom
+    items.forEach((el) => {
+      if (el.classList.contains("visible")) return; // already animated
+      const rect = el.getBoundingClientRect();
+      if (rect.top < triggerY) {
+        el.classList.add("visible");
+      }
+    });
+  }
+
+  // Run once on load in case section is already in view
+  onScroll();
+  window.addEventListener("scroll", onScroll, { passive: true });
+})();

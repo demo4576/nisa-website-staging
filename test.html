@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+    /* BASIC SETUP */
+    body {
+        font-family: 'Helvetica Neue', sans-serif;
+        background-color: #f9f9f9;
+        color: #333;
+        margin: 0;
+        padding-bottom: 100px;
+    }
+
+    h2 {
+        text-align: center;
+        font-size: 2.5rem;
+        margin: 60px 0;
+        color: #2c3e50;
+    }
+
+    /* TIMELINE CONTAINER */
+    .timeline {
+        position: relative;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 40px 20px;
+    }
+
+    /* THE CENTRAL LINE */
+    .timeline::after {
+        content: '';
+        position: absolute;
+        width: 2px;
+        background-color: #e0e0e0;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        margin-left: -1px;
+    }
+
+    /* THE CARD CONTAINER */
+    .container {
+        padding: 10px 40px;
+        position: relative;
+        background-color: inherit;
+        width: 50%;
+        box-sizing: border-box;
+        opacity: 0; /* Hidden initially */
+        transform: translateY(50px); /* Pushed down initially */
+        transition: all 1s ease; /* The smooth animation */
+    }
+
+    /* PLACEMENT: LEFT VS RIGHT */
+    .left { left: 0; }
+    .right { left: 50%; }
+
+    /* VISIBLE STATE (Triggered by JS) */
+    .container.show {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* THE CONTENT BOX */
+    .content {
+        padding: 20px 30px;
+        background-color: white;
+        position: relative;
+        border-radius: 16px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    /* DECORATIVE DOTS ON LINE */
+    .container::after {
+        content: '';
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        right: -8px;
+        background-color: #fff;
+        border: 4px solid #FF5722; /* Accent Color */
+        top: 50px;
+        border-radius: 50%;
+        z-index: 1;
+    }
+    
+    /* Fix dot position for right side */
+    .right::after { left: -8px; }
+
+    /* IMAGE STYLING */
+    .card-image {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 12px;
+    }
+
+    h3 { margin: 0; color: #FF5722; }
+    p { margin: 0; line-height: 1.6; color: #666; }
+
+    /* MOBILE RESPONSIVENESS */
+    @media screen and (max-width: 768px) {
+        .timeline::after { left: 31px; }
+        .container { width: 100%; padding-left: 70px; padding-right: 25px; }
+        .right { left: 0%; }
+        .container::after { left: 23px; }
+    }
+</style>
+</head>
+<body>
+
+    <h2>Main Focus Areas</h2>
+
+    <div class="timeline">
+        
+        <div class="container left">
+            <div class="content">
+                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80" class="card-image" alt="Women Empowerment">
+                <h3>Women Empowerment</h3>
+                <p>Building confidence, voice, and decision-making power for women within their homes and communities.</p>
+            </div>
+        </div>
+
+        <div class="container right">
+            <div class="content">
+                <img src="https://images.unsplash.com/photo-1598062973792-749e7b243444?auto=format&fit=crop&w=600&q=80" class="card-image" alt="Skill Development">
+                <h3>Skill Development</h3>
+                <p>Sewing, crochet, embroidery, literacy, and cosmetology — training based entirely on what women ask for.</p>
+            </div>
+        </div>
+
+        <div class="container left">
+            <div class="content">
+                <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=600&q=80" class="card-image" alt="Production Readiness">
+                <h3>Production Readiness</h3>
+                <p>Training in finishing, quality, speed, and simple systems so skills become professional and market-ready.</p>
+            </div>
+        </div>
+
+        <div class="container right">
+            <div class="content">
+                <img src="https://images.unsplash.com/photo-1556742049-0cfed4f7a07d?auto=format&fit=crop&w=600&q=80" class="card-image" alt="Livelihood Creation">
+                <h3>Livelihood Creation</h3>
+                <p>Connecting women to real orders and home-based income pathways through our dedicated partner networks.</p>
+            </div>
+        </div>
+
+    </div>
+
+<script>
+    // SIMPLE SCROLL ANIMATION SCRIPT
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show');
+            }
+        });
+    });
+
+    const hiddenElements = document.querySelectorAll('.container');
+    hiddenElements.forEach((el) => observer.observe(el));
+</script>
+
+</body>
+</html>

@@ -101,19 +101,36 @@ html.lenis, html.lenis body { height: auto; }
 }
 
 .header-left {
-  margin-left: 3rem;
+  margin-left: 1rem;
 }
 
 /* Brand Styles */
 .brand {
-  display: flex;
+  display: block;
+  position: relative;
   align-items: center;
   padding: 0; 
   margin: 0;
+  width: 120px; 
+  height: 120px;
   text-decoration: none;
   color: inherit;
 }
-.brand-logo { width: 120px; height: 120px; object-fit: contain; }
+.brand-logo { width: 100px; height: 100px; object-fit: contain; transition: opacity 0.3s ease;}
+
+.logo-white {
+  position: relative; /* Takes up space in the flow */
+  opacity: 1;
+  z-index: 1;
+}
+
+.logo-blue {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  z-index: 2;
+}
 
 /* Center Pill (The Navigation) */
 .nav-pill {
@@ -275,6 +292,11 @@ html.lenis, html.lenis body { height: auto; }
 
 /* --- DESKTOP ONLY LOGIC (> 960px) --- */
 @media (min-width: 961px) {
+
+  body.scrolled .brand-logo,
+  body.overlap-text .brand-logo {
+    opacity: 0;
+  }
   
   /* 1. Hide Hamburger & Mobile Overlay on Desktop */
   .mobile-menu-overlay { display: none !important; }
@@ -304,6 +326,10 @@ html.lenis, html.lenis body { height: auto; }
 
 /* --- MOBILE & TABLET LOGIC (< 960px) --- */
 @media (max-width: 960px) {
+
+
+  body.scrolled .logo-white { opacity: 0; }
+  body.scrolled .logo-blue  { opacity: 1; }
   
   /* 1. Header Layout & Default Translucent State (Hero) */
   .split-header {
@@ -346,6 +372,10 @@ html.lenis, html.lenis body { height: auto; }
     align-items: center;
     gap: 0.8rem; 
     margin-right: -4px; 
+  }
+
+  .header-left {
+    margin-left: 0;
   }
 
   /* 6. Hamburger Icon Styling */
@@ -560,11 +590,36 @@ html:not([data-lang]) .lang-hi { display: none !important; }
 }
 
 .hero-inner {
-  max-width: 1080px;
-  margin: 0 auto;
+  width: 100%;
+  max-width: 100%; 
+  margin: 0; 
+  
   display: grid;
   gap: 2.4rem;
-  padding-inline: 1.5rem;
+
+  /* --- DESKTOP ALIGNMENT (> 960px) --- */
+  /* Calculation: 2rem (Header Padding) + 1rem (Logo Margin) = 3rem */
+  padding-left: 3rem;  
+  padding-right: 2rem; 
+}
+
+/* --- MOBILE ALIGNMENT (< 960px) --- */
+@media (max-width: 960px) {
+  .hero-inner {
+    /* Calculation: 1rem (Header Padding) + 0rem (Logo Margin) = 1rem */
+    padding-left: 1rem; 
+    padding-right: 1rem;
+    
+    /* Switch to single column for mobile */
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Ensure the text container allows full width on mobile */
+@media (max-width: 768px) {
+  .hero-text {
+    max-width: 100%;
+  }
 }
 
 @media (min-width: 900px) {

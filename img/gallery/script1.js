@@ -1,40 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
 
   /* =========================================
-     0. PRELOADER (FIXED 5 SECONDS)
-     ========================================= */
-  const preloader = document.getElementById("preloader");
-  const body = document.body;
-
-  if ('scrollRestoration' in history) {
-    history.scrollRestoration = 'manual'; 
-  }
-
-  // 1. Lock scroll immediately
-  if(preloader) {
-    body.style.overflow = "hidden";
-    window.scrollTo(0, 0); 
-  }
-
-  // 2. Wait 2.6 Seconds (2600ms) then fade out
-  setTimeout(() => {
-    if (!preloader) return;
-    
-    // Start fade out animation
-    preloader.classList.add("fade-out");
-    
-    // This triggers the CSS to show the header
-    body.classList.add("site-loaded"); 
-    // ---------------------
-    
-    // Wait for CSS transition (0.6s) to finish, then unlock scroll
-    setTimeout(() => {
-      body.style.overflow = ""; 
-    }, 600);
-
-  }, 2600);
-
-  /* =========================================
      1. INITIALIZE LENIS (SMOOTH SCROLL)
      ========================================= */
   // This creates the smooth momentum scrolling effect on the whole page.
@@ -48,8 +14,6 @@ document.addEventListener("DOMContentLoaded", () => {
     smoothTouch: false, // Disable on mobile for native feel
     touchMultiplier: 2,
   });
-
-  lenis.scrollTo(0, { immediate: true });
 
   function raf(time) {
     lenis.raf(time);
@@ -84,6 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
   /* =========================================
      3. NAVIGATION LOGIC (DESKTOP & MOBILE)
      ========================================= */
+  const body = document.body;
 
   // --- A. DESKTOP DROPDOWNS (Click to toggle) ---
   const desktopPillBtns = document.querySelectorAll(".pill-link");

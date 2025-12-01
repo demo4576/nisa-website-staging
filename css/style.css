@@ -211,25 +211,102 @@ body.manual-reveal.nav-ready .split-header {
 .pill-item.active .pill-link svg { transform: rotate(180deg); }
 .pill-item.active .pill-link { color: var(--primary); }
 
-/* Mega Menu */
+/* --- MEGA MENU (Subtle Palette Colors) --- */
 .dropdown-mega {
-  position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(10px);
-  min-width: 230px; padding: 0.35rem;
-  background: #ffffff; border-radius: 14px; border: 1px solid rgba(1, 65, 162, 0.08);
-  box-shadow: 0 15px 40px -5px rgba(5, 25, 72, 0.12);
-  display: none; z-index: 200;
+  position: absolute; 
+  top: 100%; 
+  left: 50%; 
+  transform: translateX(-50%) translateY(10px);
+  min-width: 250px; 
+  padding: 0.5rem; 
+  
+  background: #ffffff; 
+  border-radius: 16px; 
+  border: 1px solid rgba(16, 34, 58, 0.06); 
+  box-shadow: 0 15px 50px -10px rgba(16, 34, 58, 0.1); 
+  
+  display: none; 
+  z-index: 200;
 }
-.pill-item.active .dropdown-mega { display: block; animation: fadeUp 0.15s ease-out forwards; }
-.dropdown-inner { display: flex; flex-direction: column; gap: 0; }
 
-.mega-link { display: block; text-decoration: none; padding: 0.5rem 0.75rem; border-radius: 8px; transition: background 0.2s ease; }
-.mega-link strong { display: block; font-size: 0.9rem; font-weight: 700; color: var(--primary); line-height: 1.2; }
-.mega-link span { display: block; font-size: 0.75rem; color: #64748b; margin-top: 2px; }
-.mega-link:hover { background: #f0f4fa; }
-.mega-link:hover strong { color: var(--primary-dark); }
-.mega-link.highlight { background: var(--accent-light); margin-top: 0.25rem; }
+.pill-item.active .dropdown-mega { 
+  display: block; 
+  animation: fadeUp 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; 
+}
+
+.dropdown-inner { 
+  display: flex; 
+  flex-direction: column; 
+  gap: 2px; 
+}
+
+/* The Link Items */
+.mega-link { 
+  display: block; 
+  text-decoration: none; 
+  padding: 0.75rem 1rem; 
+  border-radius: 8px; 
+  transition: all 0.2s ease; 
+  position: relative;
+  
+  /* 1. Base Setup: Transparent Left Border */
+  border-left: 3px solid transparent; 
+}
+
+/* 2. ASSIGN COLORS (Cycling Logic) */
+/* Item 1: Blue */
+.mega-link:nth-child(1) { --hover-color: var(--primary); --hover-bg: #f0f7ff; }
+/* Item 2: Teal */
+.mega-link:nth-child(2) { --hover-color: var(--tertiary); --hover-bg: #f2fbfb; }
+/* Item 3: Pink */
+.mega-link:nth-child(3) { --hover-color: var(--secondary); --hover-bg: #fff5f6; }
+/* Item 4: Orange */
+.mega-link:nth-child(4) { --hover-color: var(--accent); --hover-bg: #fff8f6; }
+
+/* 3. Typography */
+.mega-link strong { 
+  display: block; 
+  font-size: 0.95rem; 
+  font-weight: 700; 
+  color: var(--text); 
+  line-height: 1.2; 
+  margin-bottom: 0.25rem;
+  transition: color 0.2s ease;
+}
+
+.mega-link span { 
+  display: block; 
+  font-size: 0.8rem; 
+  color: var(--muted); 
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+/* 4. HOVER STATES (Uses the assigned variables) */
+.mega-link:hover { 
+  background-color: var(--hover-bg); /* Very soft tinted background */
+  border-left-color: var(--hover-color); /* The Colorful Bar */
+  padding-left: 1.2rem; /* Nudge text slightly right */
+}
+
+.mega-link:hover strong { 
+  color: var(--hover-color); /* Title turns to specific color */
+}
+
+.mega-link:hover span {
+  color: #555; /* Subtext gets slightly darker */
+}
+
+/* Highlight (Donate) Button - Special Override */
+.mega-link.highlight { 
+  margin-top: 0.5rem; 
+  border: 1px dashed rgba(219, 92, 73, 0.2);
+  border-left: 3px solid transparent; /* Reset border logic */
+  --hover-color: var(--accent);
+  --hover-bg: #fff5f3;
+}
 .mega-link.highlight strong { color: var(--accent); }
-.mega-link.highlight:hover { background: #fcece9; }
+.mega-link.highlight:hover { border-color: transparent; border-left-color: var(--accent); }
 
 /* Language Toggle */
 .lang-toggle {
@@ -474,63 +551,135 @@ html[data-lang="en"] .lang-hi, html[data-lang="hi"] .lang-en, html:not([data-lan
 /* RESPONSIVE */
 @media (max-width: 960px) {
   
-  /* 1. Reset the Grid to Stack Vertically */
+  /* 1. Base Layout (Transparent by default) */
+  .header-center.nav-pill { display: none; }
+  
+  .split-header {
+    display: flex; justify-content: space-between; padding: 1rem 1.5rem;
+    /* Start Transparent */
+    background: transparent; 
+    backdrop-filter: none;
+    border-bottom: 1px solid transparent;
+    transition: all 0.3s ease;
+  }
+  
+  .header-left { margin-left: 0; }
+  .header-right { display: flex; align-items: center; gap: 0.8rem; margin-right: -4px; }
+  .header-side { opacity: 1 !important; transform: none !important; pointer-events: auto !important; }
+
+  /* 2. Logo Logic (Default = White for Homepage) */
+  .logo-white { opacity: 1; }
+  .logo-blue { opacity: 0; }
+  .nav-toggle span { background: #ffffff; } /* White hamburger by default */
+  .lang-toggle { background: rgba(255, 255, 255, 0.2) !important; border-color: rgba(255, 255, 255, 0.3) !important; }
+
+  /* 3. SCROLLED STATE (Solid White Background) */
+  body.scrolled .split-header {
+    background: #ffffff !important; 
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-soft); 
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    padding: 0.8rem 1.5rem;
+  }
+  
+  /* Scrolled = Blue Logo & Dark Hamburger */
+  body.scrolled .logo-white { opacity: 0; }
+  body.scrolled .logo-blue { opacity: 1; }
+  body.scrolled .nav-toggle span { background: var(--primary); }
+
+  /* Scrolled Language Toggle */
+  body.scrolled .lang-toggle { background: #f1f5f9 !important; border-color: #e2e8f0 !important; }
+  html[data-lang="en"] body.scrolled .lang-toggle-en, html[data-lang="hi"] body.scrolled .lang-toggle-hi { color: var(--primary) !important; }
+  html[data-lang="en"] body.scrolled .lang-toggle-hi, html[data-lang="hi"] body.scrolled .lang-toggle-en { color: #64748b !important; }
+  body.scrolled .lang-toggle-sep { color: #cbd5e1 !important; }
+
+  /* 4. "FORCE BLUE" STATE (For About Page / Light Heroes) */
+  /* Even when NOT scrolled, show blue logo on About Page */
+  .split-header.header-force-blue .logo-white { opacity: 0; }
+  .split-header.header-force-blue .logo-blue { opacity: 1; }
+  .split-header.header-force-blue .nav-toggle span { background: var(--primary); }
+  
+  .split-header.header-force-blue .lang-toggle { 
+    background: rgba(22, 19, 17, 0.05) !important; 
+    border-color: rgba(0, 0, 0, 0.05) !important; 
+    color: var(--text) !important;
+  }
+
+  /* 5. Mobile Menu Overlay */
+  .nav-toggle {
+    display: flex; flex-direction: column; justify-content: space-between;
+    width: 26px; height: 18px; background: none; border: none; cursor: pointer; z-index: 110; padding: 0;
+  }
+  .nav-toggle span { display: block; width: 100%; height: 2px; border-radius: 2px; transition: all 0.3s ease; }
+  
+  /* Animate Hamburger to X */
+  body.menu-open .nav-toggle span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); background: var(--primary); }
+  body.menu-open .nav-toggle span:nth-child(2) { opacity: 0; }
+  body.menu-open .nav-toggle span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); background: var(--primary); }
+
+  .mobile-menu-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+    background: #ffffff; z-index: 100; padding-top: 80px; overflow-y: auto;
+    opacity: 0; visibility: hidden; transform: translateY(-10px); transition: all 0.3s ease-in-out;
+  }
+  body.menu-open .mobile-menu-overlay { opacity: 1; visibility: visible; transform: translateY(0); }
+  
+  .mobile-menu-inner { padding: 1.5rem; display: flex; flex-direction: column; gap: 2rem; }
+  .mobile-list { list-style: none; padding: 0; margin: 0; }
+  .mobile-item { border-bottom: 1px solid var(--border-soft); }
+  
+  .mobile-accordion-btn {
+    width: 100%; display: flex; justify-content: space-between; align-items: center;
+    background: none; border: none; padding: 1.2rem 0; font-size: 1.1rem; font-weight: 600;
+    color: var(--text); cursor: pointer;
+  }
+  
+  .mobile-sub-menu { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; padding-left: 0.5rem; }
+  .mobile-item.active .mobile-sub-menu { max-height: 300px; margin-bottom: 1rem; }
+  .mobile-item.active .arrow { transform: rotate(45deg); }
+  .mobile-sub-menu a { display: block; text-decoration: none; color: var(--muted); padding: 0.5rem 0; font-size: 1rem; }
+
+  /* 6. HERO ADJUSTMENTS (Fixing the "Blocking" issue) */
+  
+  /* ABOUT PAGE HERO on Mobile */
   .hero-about-split { 
     grid-template-columns: 1fr; 
     height: auto; 
     min-height: auto; 
-    /* Add padding to top so text doesn't hide behind navbar */
+    /* We KEEP padding here because the text is dark and needs to sit below the logo */
     padding-top: 80px; 
     display: flex;
     flex-direction: column;
   }
-
-  /* 2. TEXT COMES FIRST (Order 1) */
+  
   .hero-about-text { 
-    padding: 3rem 1.5rem 4rem 1.5rem; /* ample padding */
-    order: 1; /* TEXT FIRST */
+    padding: 2rem 1.5rem 4rem 1.5rem;
+    order: 1; 
     align-items: center; 
     text-align: center;
     width: 100%;
   }
 
-  /* 3. CENTER THE WATERMARK ON MOBILE */
   .hero-about-text::before { 
-    width: 300px; 
-    height: 300px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); /* Perfectly centered behind text */
+    width: 300px; height: 300px;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
   }
 
-  /* 4. IMAGE COMES SECOND (Order 2) */
   .hero-about-image { 
-    order: 2; /* IMAGE SECOND */
-    height: 50vh; /* Takes up half the screen height */
-    width: 100%;
-    min-height: 350px;
+    order: 2; height: 50vh; width: 100%; min-height: 350px;
   }
-  
-  /* Ensure image fills the space */
-  .hero-about-image img {
-    border-radius: 0;
+  .hero-about-image img { border-radius: 0; }
+
+  /* HOMEPAGE HERO (Video) on Mobile */
+  /* Ensure it has NO top padding so the video goes behind the transparent nav */
+  .hero {
+    padding-bottom: 0;
+    align-items: center; /* Center text on mobile */
   }
-  
-  /* 5. FIX NAVBAR VISIBILITY */
-  /* Force the mobile header to have a white background so logo is visible */
-  .split-header {
-    background: rgba(255, 255, 255, 0.95) !important;
-    backdrop-filter: blur(10px) !important;
-    border-bottom: 1px solid rgba(0,0,0,0.05);
+  .hero-inner {
+    padding-top: 0; 
   }
-  
-  /* Ensure we see the BLUE logo on mobile (since background is white) */
-  .logo-white { opacity: 0 !important; }
-  .logo-blue { opacity: 1 !important; }
-  
-  /* Ensure Hamburger is visible */
-  .nav-toggle span { background: var(--primary) !important; }
-  .lang-toggle { color: var(--primary) !important; border-color: var(--primary-soft) !important; }
 }
 
 /* =========================================

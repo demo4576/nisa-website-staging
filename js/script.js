@@ -258,18 +258,42 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* =========================================
-     7. HERO PARALLAX EFFECT
+     7. HERO PARALLAX EFFECT (Homepage & About)
      ========================================= */
   const heroSection = document.querySelector(".hero");
-  if (heroSection) {
+  const aboutHero = document.querySelector(".hero-about-split");
+
+  if (heroSection || aboutHero) {
     let ticking = false;
     window.addEventListener("scroll", () => {
       if (!ticking) {
         window.requestAnimationFrame(() => {
           const scrollY = window.scrollY;
-          // Move background slower than text
-          heroSection.style.setProperty("--hero-bg-offset", `${scrollY * 0.4}px`);
-          heroSection.style.setProperty("--hero-text-offset", `${scrollY * 0.15}px`);
+
+          // A. Homepage Hero (Uses CSS Variables defined in style.css)
+          if (heroSection) {
+            heroSection.style.setProperty("--hero-bg-offset", `${scrollY * 0.4}px`);
+            heroSection.style.setProperty("--hero-text-offset", `${scrollY * 0.15}px`);
+          }
+
+          // B. About Page Hero (Direct Transform)
+          if (aboutHero) {
+            const textCol = aboutHero.querySelector(".hero-about-text");
+            const imgCol = aboutHero.querySelector(".hero-about-image");
+
+            // Only run on desktop to maintain stacked layout stability on mobile
+            if (window.innerWidth > 960) {
+              // Move text down slowly
+              if (textCol) textCol.style.transform = `translate3d(0, ${scrollY * 0.08}px, 0)`;
+              // Move image down slightly faster to create depth/lag
+              if (imgCol) imgCol.style.transform = `translate3d(0, ${scrollY * 0.18}px, 0)`;
+            } else {
+              // Reset if on mobile
+              if (textCol) textCol.style.transform = "none";
+              if (imgCol) imgCol.style.transform = "none";
+            }
+          }
+
           ticking = false;
         });
         ticking = true;

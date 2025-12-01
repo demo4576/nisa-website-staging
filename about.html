@@ -1,629 +1,600 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-lang="en">
 <head>
   <meta charset="UTF-8" />
   <title>About NISA | हमारे बारे में</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css" />
-</head>
-<body>
-  <!-- HEADER + NAV -->
-  <header class="split-header">
-  
-  <div class="header-side header-left">
-    <a href="index.html" class="brand">
-      <img src="img/blue-symbol.png" alt="NISA White" class="brand-logo logo-white"/>
-      <img src="img/blue-symbol.png" alt="NISA Blue" class="brand-logo logo-blue"/>
-    </a>
-  </div>
-
-  <nav class="header-center nav-pill">
-    <ul class="pill-menu">
-      
-      <li class="pill-item">
-        <button class="pill-link">
-          <span class="lang-en">About NISA</span>
-          <span class="lang-hi">नीसा के बारे में</span>
-          <svg width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 1L5 5L9 1"/></svg>
-        </button>
-        <div class="dropdown-mega">
-          <div class="dropdown-inner">
-            <a href="about.html" class="mega-link">
-              <strong>
-                <span class="lang-en">About Us</span>
-                <span class="lang-hi">हमारे बारे में</span>
-              </strong>
-              <span>
-                <span class="lang-en">Our story & mission</span>
-                <span class="lang-hi">हमारी कहानी और मिशन</span>
-              </span>
-            </a>
-            <a href="work.html" class="mega-link">
-              <strong>
-                <span class="lang-en">Our Work</span>
-                <span class="lang-hi">हमारा काम</span>
-              </strong>
-              <span>
-                <span class="lang-en">What we do</span>
-                <span class="lang-hi">हम क्या करते हैं</span>
-              </span>
-            </a>
-            <a href="gallery.html" class="mega-link">
-              <strong>
-                <span class="lang-en">Gallery</span>
-                <span class="lang-hi">गैलरी</span>
-              </strong>
-              <span>
-                <span class="lang-en">Images from the field</span>
-                <span class="lang-hi">मैदान से तस्वीरें</span>
-              </span>
-            </a>
-            <a href="events.html" class="mega-link">
-              <strong>
-                <span class="lang-en">Events & Blog</span>
-                <span class="lang-hi">कार्यक्रम / ब्लॉग</span>
-              </strong>
-              <span>
-                <span class="lang-en">Latest updates</span>
-                <span class="lang-hi">नवीनतम अपडेट</span>
-              </span>
-            </a>
-          </div>
-        </div>
-      </li>
-
-      <li class="pill-item">
-        <button class="pill-link">
-          <span class="lang-en">Take Action</span>
-          <span class="lang-hi">सहयोग करें</span>
-          <svg width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 1L5 5L9 1"/></svg>
-        </button>
-        <div class="dropdown-mega">
-          <div class="dropdown-inner">
-            <a href="get-involved.html" class="mega-link">
-              <strong>
-                <span class="lang-en">Volunteer</span>
-                <span class="lang-hi">स्वयंसेवक बनें</span>
-              </strong>
-              <span>
-                <span class="lang-en">Join our team</span>
-                <span class="lang-hi">हमारी टीम में शामिल हों</span>
-              </span>
-            </a>
-            <a href="donate.html" class="mega-link highlight">
-              <strong>
-                <span class="lang-en">Donate</span>
-                <span class="lang-hi">दान करें</span>
-              </strong>
-              <span>
-                <span class="lang-en">Support the cause</span>
-                <span class="lang-hi">आर्थिक सहयोग दें</span>
-              </span>
-            </a>
-          </div>
-        </div>
-      </li>
-
-      <li class="pill-item">
-        <button class="pill-link">
-          <span class="lang-en">Connect</span>
-          <span class="lang-hi">संपर्क करें</span>
-          <svg width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 1L5 5L9 1"/></svg>
-        </button>
-        <div class="dropdown-mega">
-          <div class="dropdown-inner">
-            <a href="contact.html" class="mega-link">
-              <strong>
-                <span class="lang-en">Contact Us</span>
-                <span class="lang-hi">संपर्क करें</span>
-              </strong>
-              <span>
-                <span class="lang-en">Get in touch</span>
-                <span class="lang-hi">बातचीत शुरू करें</span>
-              </span>
-            </a>
-            <a href="#footer" class="mega-link"> 
-              <strong>
-                <span class="lang-en">Visit Us</span>
-                <span class="lang-hi">हमसे मिलें</span>
-              </strong>
-              <span>
-                <span class="lang-en">Find us in Jodhpur</span>
-                <span class="lang-hi">जोधपुर में हमारा पता</span>
-              </span>
-            </a>
-          </div>
-        </div>
-      </li>
-
-    </ul>
-  </nav>
-
-  <div class="header-side header-right">
-    <button class="lang-toggle" id="lang-toggle" type="button">
-      <span class="lang-toggle-label lang-toggle-en">EN</span>
-      <span class="lang-toggle-sep">|</span>
-      <span class="lang-toggle-label lang-toggle-hi">हिंदी</span>
-    </button>
+  <style>
+    /* Specific overrides for this page's animation sequence */
     
-    <button class="nav-toggle" aria-label="Toggle navigation">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
+    /* Ensure watermark starts hidden and has a transition */
+    .hero-about-text::before {
+      opacity: 0; /* Hidden initially */
+      transition: opacity 1.5s ease-in-out; /* Slow fade in */
+    }
 
-  <div class="mobile-menu-overlay" id="mobile-menu">
-    <div class="mobile-menu-inner">
-      
+    /* The class JS will add to trigger the fade in */
+    .hero-about-text.watermark-visible::before {
+      opacity: 0.05; /* Target opacity */
+    }
+  </style>
+</head>
+
+<body class="manual-reveal">
+  
+  <header class="split-header header-force-blue">
+    <div class="header-side header-left">
+      <a href="index.html" class="brand">
+        <img src="img/white-symbol.png" alt="NISA White" class="brand-logo logo-white"/>
+        <img src="img/blue-symbol.png" alt="NISA Blue" class="brand-logo logo-blue"/>
+      </a>
+    </div>
+
+    <nav class="header-center nav-pill">
+      <ul class="pill-menu">
+        <li class="pill-item">
+          <button class="pill-link">
+            <span class="lang-en">About NISA</span>
+            <span class="lang-hi">नीसा के बारे में</span>
+            <svg width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 1L5 5L9 1"/></svg>
+          </button>
+          <div class="dropdown-mega">
+            <div class="dropdown-inner">
+              <a href="about.html" class="mega-link"><strong><span class="lang-en">About Us</span><span class="lang-hi">हमारे बारे में</span></strong><span><span class="lang-en">Our story & mission</span><span class="lang-hi">हमारी कहानी और मिशन</span></span></a>
+              <a href="work.html" class="mega-link"><strong><span class="lang-en">Our Work</span><span class="lang-hi">हमारा काम</span></strong><span><span class="lang-en">What we do</span><span class="lang-hi">हम क्या करते हैं</span></span></a>
+              <a href="gallery.html" class="mega-link"><strong><span class="lang-en">Gallery</span><span class="lang-hi">गैलरी</span></strong><span><span class="lang-en">Images from the field</span><span class="lang-hi">मैदान से तस्वीरें</span></span></a>
+              <a href="events.html" class="mega-link"><strong><span class="lang-en">Events & Blog</span><span class="lang-hi">कार्यक्रम / ब्लॉग</span></strong><span><span class="lang-en">Latest updates</span><span class="lang-hi">नवीनतम अपडेट</span></span></a>
+            </div>
+          </div>
+        </li>
+        <li class="pill-item">
+          <button class="pill-link">
+            <span class="lang-en">Take Action</span>
+            <span class="lang-hi">सहयोग करें</span>
+            <svg width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 1L5 5L9 1"/></svg>
+          </button>
+           <div class="dropdown-mega">
+            <div class="dropdown-inner">
+              <a href="get-involved.html" class="mega-link">
+                <strong><span class="lang-en">Volunteer</span><span class="lang-hi">स्वयंसेवक बनें</span></strong>
+                <span><span class="lang-en">Join our team</span><span class="lang-hi">हमारी टीम में शामिल हों</span></span>
+              </a>
+              <a href="donate.html" class="mega-link highlight">
+                <strong><span class="lang-en">Donate</span><span class="lang-hi">दान करें</span></strong>
+                <span><span class="lang-en">Support the cause</span><span class="lang-hi">आर्थिक सहयोग दें</span></span>
+              </a>
+            </div>
+          </div>
+        </li>
+        <li class="pill-item">
+          <button class="pill-link">
+            <span class="lang-en">Connect</span>
+            <span class="lang-hi">संपर्क करें</span>
+            <svg width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 1L5 5L9 1"/></svg>
+          </button>
+           <div class="dropdown-mega">
+            <div class="dropdown-inner">
+              <a href="contact.html" class="mega-link">
+                <strong><span class="lang-en">Contact Us</span><span class="lang-hi">संपर्क करें</span></strong>
+                <span><span class="lang-en">Get in touch</span><span class="lang-hi">बातचीत शुरू करें</span></span>
+              </a>
+              <a href="#footer" class="mega-link"> 
+                <strong><span class="lang-en">Visit Us</span><span class="lang-hi">हमसे मिलें</span></strong>
+                <span><span class="lang-en">Find us in Jodhpur</span><span class="lang-hi">जोधपुर में हमारा पता</span></span>
+              </a>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="header-side header-right">
+      <button class="lang-toggle" id="lang-toggle" type="button">
+        <span class="lang-toggle-label lang-toggle-en">EN</span>
+        <span class="lang-toggle-sep">|</span>
+        <span class="lang-toggle-label lang-toggle-hi">हिंदी</span>
+      </button>
+      <button class="nav-toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+    </div>
+    
+     <div class="mobile-menu-overlay" id="mobile-menu">
+      <div class="mobile-menu-inner">
       <nav class="mobile-nav">
         <ul class="mobile-list">
-          
-          <!-- About NISA -->
           <li class="mobile-item">
             <button class="mobile-accordion-btn">
-              <span>
-                <span class="lang-en">About NISA</span>
-                <span class="lang-hi">नीसा के बारे में</span>
-              </span>
+              <span><span class="lang-en">About NISA</span><span class="lang-hi">नीसा के बारे में</span></span>
               <span class="arrow">+</span>
             </button>
             <div class="mobile-sub-menu">
-              <a href="about.html">
-                <span class="lang-en">About Us</span>
-                <span class="lang-hi">हमारे बारे में</span>
-              </a>
-              <a href="work.html">
-                <span class="lang-en">Our Work</span>
-                <span class="lang-hi">हम क्या करते हैं</span>
-              </a>
-              <a href="gallery.html">
-                <span class="lang-en">Gallery</span>
-                <span class="lang-hi">गैलरी</span>
-              </a>
-              <a href="events.html">
-                <span class="lang-en">Events &amp; Blog</span>
-                <span class="lang-hi">कार्यक्रम / ब्लॉग</span>
-              </a>
+              <a href="about.html"><span class="lang-en">About Us</span><span class="lang-hi">हमारे बारे में</span></a>
+              <a href="work.html"><span class="lang-en">Our Work</span><span class="lang-hi">हम क्या करते हैं</span></a>
+              <a href="gallery.html"><span class="lang-en">Gallery</span><span class="lang-hi">गैलरी</span></a>
             </div>
           </li>
-
-          <!-- Take Action -->
-          <li class="mobile-item">
-            <button class="mobile-accordion-btn">
-              <span>
-                <span class="lang-en">Take Action</span>
-                <span class="lang-hi">सहयोग करें</span>
-              </span>
-              <span class="arrow">+</span>
-            </button>
-            <div class="mobile-sub-menu">
-              <a href="get-involved.html">
-                <span class="lang-en">Volunteer / Intern</span>
-                <span class="lang-hi">स्वयंसेवक / इंटर्न बनें</span>
-              </a>
-              <a href="donate.html" style="color: var(--accent);">
-                <span class="lang-en">Donate Now</span>
-                <span class="lang-hi">अभी दान करें</span>
-              </a>
-            </div>
-          </li>
-
-          <!-- Connect -->
-          <li class="mobile-item">
-            <button class="mobile-accordion-btn">
-              <span>
-                <span class="lang-en">Connect</span>
-                <span class="lang-hi">संपर्क करें</span>
-              </span>
-              <span class="arrow">+</span>
-            </button>
-            <div class="mobile-sub-menu">
-              <a href="contact.html">
-                <span class="lang-en">Contact Us</span>
-                <span class="lang-hi">संपर्क करें</span>
-              </a>
-              <a href="#footer">
-                <span class="lang-en">Visit Us</span>
-                <span class="lang-hi">हमसे मिलें</span>
-              </a>
-            </div>
-          </li>
-
-        </ul>
+           </ul>
       </nav>
-
       <div class="mobile-menu-footer">
         <a href="donate.html" class="btn btn-primary full-width">Donate / दान करें</a>
       </div>
-
     </div>
-  </div>
-
-</header>
-
-  <main class="page">
-
-  <!-- HERO SECTION -->
-  <section class="page-hero">
-    <p class="page-kicker">
-      <span class="lang-en">Our Story</span>
-      <span class="lang-hi">हमारी कहानी</span>
-    </p>
-
-    <h1>
-      <span class="lang-en">About NISA</span>
-      <span class="lang-hi">नीसा के बारे में</span>
-    </h1>
-
-    <p class="page-intro">
-      <span class="lang-en">
-        In the blue city of Jodhpur, a quiet story of women’s strength and aspiration is unfolding through NISA.
-      </span>
-      <span class="lang-hi">
-        नीली नगरी जोधपुर में, महिलाओं की ताकत और आकांक्षाओं की एक शांत कहानी नीसा के माध्यम से सामने आ रही है।
-      </span>
-    </p>
-  </section>
-
-  <!-- WHO WE ARE -->
-  <section class="page-section">
-    <h2>
-      <span class="lang-en">Who We Are</span>
-      <span class="lang-hi">हम कौन हैं</span>
-    </h2>
-
-    <p class="lang-en">
-      In the blue city of Jodhpur, where history dances on every street, a quieter and more personal story has been unfolding.
-      It begins with women who carry strength but rarely the opportunity to express it.
-    </p>
-    <p class="lang-en">
-      NISA emerged from a simple observation: communities grow when the women within them are able to imagine new futures for themselves.
-      NISA is a unit of the Suhale Foundation and works with women from low-income neighbourhoods who face educational, social and
-      economic barriers. Our approach is rooted in listening before acting and building solutions that reflect the real lives of the women we serve.
-    </p>
-
-    <p class="lang-hi">
-      जोधपुर की गलियों में इतिहास गूँजता है, लेकिन इसी के बीच एक और शांत कहानी चल रही है – उन महिलाओं की, जिनके पास ताकत तो है, पर अवसर बहुत कम।
-      नीसा इसी सरल समझ से शुरू हुआ कि जब महिलाएँ नए भविष्य की कल्पना कर सकती हैं, तब पूरा समुदाय आगे बढ़ता है। नीसा, सुहैले फाउंडेशन की इकाई है और
-      कम आय वाले इलाकों की महिलाओं के साथ काम करता है। हमारा तरीका सुनने, समझने और उनकी वास्तविक ज़िंदगी से जुड़े समाधान बनाने पर आधारित है।
-    </p>
-  </section>
-
-  <!-- VISION + MISSION -->
-  <section class="page-section grid-2">
-
-    <!-- Vision -->
-    <div>
-      <h2>
-        <span class="lang-en">Our Vision</span>
-        <span class="lang-hi">हमारा विज़न</span>
-      </h2>
-
-      <p class="lang-en">
-        We envision a future where women in low-income neighbourhoods who are socio-educationally marginalised build their own economic
-        identities with confidence. A future where skill leads to income, income leads to independence and independence leads to dignity.
-      </p>
-
-      <p class="lang-hi">
-        हमारा विज़न एक ऐसे भविष्य का है जहाँ कम आय वाले मोहल्लों की सामाजिक और शैक्षिक रूप से हाशिये पर रही महिलाएँ आत्मविश्वास के साथ
-        अपनी आर्थिक पहचान बना सकें। जहाँ कौशल से आय बने, आय से स्वतंत्रता और स्वतंत्रता से गरिमा।
-      </p>
     </div>
+  </header>
 
-    <!-- Mission -->
-    <div>
-      <h2>
-        <span class="lang-en">Our Mission</span>
-        <span class="lang-hi">हमारा मिशन</span>
-      </h2>
+  <main>
+    
+    <section class="hero-about-split" id="hero">
+      <div class="hero-about-text">
+        <div class="line-mask">
+          <div class="hero-badge line-reveal"><span class="lang-en">Who We Are</span><span class="lang-hi">हम कौन हैं</span></div>
+        </div>
+        
+        <h1 class="lang-en">
+          <div class="line-mask"><span class="line-reveal">Rooted in Dignity.</span></div>
+          <div class="line-mask"><span class="line-reveal">Driven by Hope.</span></div>
+        </h1>
+        <h1 class="lang-hi">
+          <div class="line-mask"><span class="line-reveal">गरिमा में निहित।</span></div>
+          <div class="line-mask"><span class="line-reveal">आशा से प्रेरित।</span></div>
+        </h1>
 
-      <p class="lang-en">
-        NISA was founded to interrupt the cycle of dependence and vulnerability many women face. Our mission is to build a clear, supportive
-        pathway from learning to earning through:
-      </p>
-
-      <ul class="bullet-list lang-en">
-        <li>Community-rooted skill development based on women’s expressed needs.</li>
-        <li>Training in production readiness – finishing, quality, consistency and delivery.</li>
-        <li>Building market-linked livelihood opportunities and home-based income models.</li>
-        <li>Embedding dignity, trust and proximity at every stage of our work.</li>
-      </ul>
-
-      <p class="lang-hi">
-        नीसा का उद्देश्य उस चक्र को तोड़ना है जिसमें महिलाएँ निर्भरता और असुरक्षा में फँसी रहती हैं।
-        हमारा मिशन सीखने से कमाने तक एक स्पष्ट और सहायक रास्ता बनाना है – समुदाय से जुड़े कौशल विकास, उत्पादन की तैयारी,
-        बाज़ार से जुड़े अवसर और हर कदम पर गरिमा व विश्वास के साथ।
-      </p>
-    </div>
-
-  </section>
-
-  <!-- FOUNDATION & WHY NISA -->
-  <section class="page-section grid-2">
-
-    <!-- Fabric of our foundation -->
-    <div>
-      <h2>
-        <span class="lang-en">The Fabric of Our Foundation</span>
-        <span class="lang-hi">हमारी नींव की कहानी</span>
-      </h2>
-
-      <p class="lang-en">
-        The Suhale Foundation is named after Mr Suhale, who as a student leader mobilised women for their rights.
-        His belief that a community rises when its women rise remains our guiding principle.
-      </p>
-
-      <p class="lang-en">
-        The name <strong>NISA</strong>, meaning women in Arabic, honours Khair-un-Nisa, the grandmother of our founder.
-        Her insistence on dignity and courage became the emotional foundation of our work.
-        Today, NISA stands for <strong>Nurturing Independence, Strength &amp; Advocacy</strong>.
-      </p>
-
-      <p class="lang-hi">
-        सुहैले फाउंडेशन का नाम श्री सुहैले के नाम पर रखा गया, जो छात्र नेता रहते हुए महिलाओं को उनके अधिकारों के लिए संगठित करते थे।
-        उनका मानना था कि जब महिलाएँ उठती हैं, तभी समाज उठता है – यही सोच हमारी राह दिखाती है।
-        <strong>नीसा</strong> नाम, जिसका अर्थ अरबी में “महिलाएँ” है, हमारी संस्थापक की दादी खैर-उन्न-निसा को समर्पित है,
-        जिनकी गरिमा और साहस ने हमारे काम की भावनात्मक नींव रखी।
-      </p>
-    </div>
-
-    <!-- Why NISA exists -->
-    <div>
-      <h2>
-        <span class="lang-en">Why NISA Exists</span>
-        <span class="lang-hi">नीसा क्यों ज़रूरी है</span>
-      </h2>
-
-      <p class="lang-en">The communities we work with face a cluster of interconnected challenges:</p>
-
-      <ul class="bullet-list lang-en">
-        <li>Limited access to skill training and literacy support.</li>
-        <li>Early school dropout and fragile educational journeys.</li>
-        <li>Insecure marriages and lack of accessible legal support.</li>
-        <li>No pathways to dignified, local earning opportunities.</li>
-        <li>Deep social stigma around women who wish to work.</li>
-        <li>Almost no institutional support within walking distance.</li>
-      </ul>
-
-      <p class="lang-hi">
-        जिन बस्तियों में हम काम करते हैं, वहाँ कई चुनौतियाँ एक साथ मौजूद हैं – कौशल और साक्षरता प्रशिक्षण की कमी, जल्दी स्कूल छोड़ देना,
-        असुरक्षित वैवाहिक रिश्ते, स्थानीय स्तर पर सम्मानजनक कमाई के रास्तों की कमी, काम करना चाहने वाली महिलाओं के प्रति सामाजिक कलंक
-        और पास-पड़ोस में कोई संस्थागत सहारा न होना। नीसा इन परिस्थितियों के बीच भरोसे, नज़दीकी और गरिमा पर आधारित हस्तक्षेप के रूप में काम करता है।
-      </p>
-    </div>
-
-  </section>
-
-  <!-- TEAM & LEADERSHIP -->
-  <section class="page-section">
-    <h2>
-      <span class="lang-en">Our Team & Leadership</span>
-      <span class="lang-hi">हमारी टीम और नेतृत्व</span>
-    </h2>
-
-    <div class="cards">
-      <!-- Founder -->
-      <article class="card">
-        <h3>
-          <span class="lang-en">Founder - Parveen Sheikh</span>
-          <span class="lang-hi">संस्थापक - परवीन शेख</span>
-        </h3>
-
-        <p class="lang-en">
-          Our founder’s training in Social Exclusion and Inclusive Policy at Jamia Millia Islamia and JNU shaped the analytical
-          foundation of NISA’s work. Experience working with Nobel Laureate Kailash Satyarthi, contributing to policy in a Member
-          of Parliament’s office and teaching in public schools in Spain deepened her understanding of exclusion across contexts.
-        </p>
-
-        <p class="lang-en">
-          As an elected student union leader, she learned how to build consensus, design participatory processes and lead diverse
-          teams with clarity and empathy.
-        </p>
-
-        <p class="lang-hi">
-          हमारी संस्थापक की शिक्षा जमिया मिल्लिया इस्लामिया और जेएनयू में “सोशल एक्सक्लूज़न और इनक्लूसिव पॉलिसी” पर हुई,
-          जिसने नीसा के काम की विश्लेषणात्मक नींव रखी। नोबेल विजेता कैलाश सत्यार्थी के साथ काम करने, सांसद कार्यालय में नीतिगत कार्य में योगदान देने
-          और स्पेन के सार्वजनिक विद्यालयों में पढ़ाने के अनुभव ने उनके दृष्टिकोण को और गहराई दी।
-        </p>
-        <p class="lang-hi">
-          छात्र संघ की निर्वाचित नेता रहते हुए उन्होंने संवाद, सहयोग और विविध टीमों के साथ संवेदनशील नेतृत्व करना सीखा।
-        </p>
-
-      </article>
-
-      <!-- Director -->
-      <article class="card">
-        <h3>
-          <span class="lang-en">Director – Mrs Bhika Devi</span>
-          <span class="lang-hi">निदेशक – श्रीमती भीखा देवी</span>
-        </h3>
-
-        <p class="lang-en">
-          Our director brings lived expertise that grounds our work. She understands the social realities, constraints and
-          aspirations of local women with clarity, ensuring our interventions remain relevant and rooted in community trust.
-        </p>
-
-        <p class="lang-hi">
-          हमारी निदेशक अपने अनुभव से नीसा के काम को जमीनी मजबूती देती हैं। स्थानीय महिलाओं की परिस्थितियों, चुनौतियों और आकांक्षाओं को वह गहराई से
-          समझती हैं, जिससे हमारे कार्यक्रम समुदाय की वास्तविकता से जुड़े रहते हैं और महिलाओं के विश्वास पर आधारित होते हैं।
-        </p>
-      </article>
-    </div>
-
-    <div class="team-separator">
-      <h3 class="lang-en">Board Members</h3>
-      <h3 class="lang-hi">बोर्ड सदस्य</h3>
-    </div>
-
-    <div class="board-grid">
-      <div class="board-card">
-        <img src="img/bm-1.jpg" alt="Member Name" class="board-img" loading="lazy">
-        <div class="board-info">
-          <h4>Bhikha Devi</h4>
-          <span class="role lang-en">Director</span>
-          <span class="role lang-hi">निदेशक</span>
+        <div class="line-mask">
+          <p class="hero-lead lang-en line-reveal">NISA is more than an organization; it’s a sisterhood building a future where every woman defines her own worth.</p>
+        </div>
+        <div class="line-mask">
+          <p class="hero-lead lang-hi line-reveal">नीसा केवल एक संस्था नहीं है; यह एक ऐसा बहनचारा है जो एक ऐसे भविष्य का निर्माण कर रहा है जहाँ हर महिला अपनी कीमत खुद तय करती है।</p>
         </div>
       </div>
-
-      <div class="board-card">
-        <img src="img/bm-5.jpg" alt="Member Name" class="board-img" loading="lazy">
-        <div class="board-info">
-          <h4>Parveen Sheikh</h4>
-          <span class="role lang-en">Founder</span>
-          <span class="role lang-hi">संस्थापक</span>
-        </div>
+      <div class="hero-about-image">
+        <img src="img/teamb.jpg" alt="NISA Team">
       </div>
+    </section>
 
-      <div class="board-card">
-        <img src="img/bm-2.jpg" alt="Member Name" class="board-img" loading="lazy">
-        <div class="board-info">
-          <h4>Suhale Mohammed</h4>
-          <span class="role lang-en">Member</span>
-          <span class="role lang-hi">पद</span>
+    <section class="home-section about-intro-section">
+      <div class="editorial-grid">
+          
+          <div class="editorial-sidebar">
+          <div class="editorial-sidebar-bg">
+            <img src="img/blue-city.jpg" alt="Blue City Jodhpur">
+          </div>
+          
+          <div class="editorial-sidebar-content">
+            <h2 class="editorial-title text-white">
+              <span class="lang-en">The Blue City's<br>Quiet Revolution</span>
+              <span class="lang-hi">नीली नगरी की<br>शांत क्रांति</span>
+            </h2>
+            <div class="decorative-line"></div>
+          </div>
         </div>
-      </div>
 
-      <div class="board-card">
-        <img src="img/bm-3.jpg" alt="Member Name" class="board-img" loading="lazy">
-        <div class="board-info">
-          <h4>Shah Bano</h4>
-          <span class="role lang-en">Member</span>
-          <span class="role lang-hi">पद</span>
+        <div class="editorial-content">
+          <p class="drop-cap lang-en">
+            The blue city of Jodhpur, where history dances on every street, a quieter story is unfolding. It begins with women who carry strength but rarely the opportunity to express it.
+          </p>
+          <p class="drop-cap lang-hi">
+            नीली नगरी जोधपुर की गलियों में, जहाँ इतिहास हर मोड़ पर थिरकता है, वहाँ एक शांत कहानी आकार ले रही है। यह उन महिलाओं से शुरू होता है जिनके पास ताकत तो है लेकिन उसे व्यक्त करने का अवसर शायद ही कभी मिलता है।
+          </p>
+
+          <p class="lang-en">
+            NISA emerged from a simple observation: communities grow when the women within them are able to imagine new futures for themselves. We are a unit of the Suhale Foundation, working with women from low-income neighbourhoods who face educational, social, and economic barriers.
+          </p>
+          <p class="lang-hi">
+            नीसा की शुरुआत इस सरल सोच से हुई: समुदाय तभी बढ़ते हैं जब महिलाएं अपने लिए नए भविष्य की कल्पना कर पाती हैं। हम सुहैले फाउंडेशन की एक इकाई हैं और उन महिलाओं के साथ काम करते हैं जो शैक्षिक और आर्थिक बाधाओं का सामना करती हैं।
+          </p>
+
+          <p class="lang-en">
+            Our approach is rooted in <strong>listening before acting</strong>. We don't just bring solutions; we build them alongside the women we serve, ensuring every step reflects their real lives and aspirations.
+          </p>
+          <p class="lang-hi">
+            हमारा दृष्टिकोण <strong>कार्रवाई करने से पहले सुनने</strong> में निहित है। हम केवल समाधान नहीं लाते; हम उन्हें उन महिलाओं के साथ मिलकर बनाते हैं जिनकी हम सेवा करते हैं।
+          </p>
         </div>
-      </div>
 
-      <div class="board-card">
-        <img src="img/bm-4.jpg" alt="Member Name" class="board-img" loading="lazy">
-        <div class="board-info">
-          <h4>⁠Kadir Ahmed</h4>
-          <span class="role lang-en">Member</span>
-          <span class="role lang-hi">पद</span>
-        </div>
       </div>
-    </div>
+    </section>
 
-    <div class="committee-wrapper">
+    <section class="home-section vm-section">
+    <section class="vision-banner">
+    <div class="vision-content">
+      <div class="vision-icon">✦</div>
+      <h2 class="lang-en">Our Vision</h2>
+      <h2 class="lang-hi">हमारा विज़न</h2>
       
-      <div class="committee-block">
-        <h3 class="committee-title">
-          <span class="lang-en">Advisory Committee</span>
-          <span class="lang-hi">सलाहकार समिति</span>
+      <div class="vision-text-wrapper">
+        <h3 class="lang-en">
+          "We envision a future where skill leads to income, income leads to independence, and independence leads to dignity."
         </h3>
-        <ul class="name-list two-col">
-          <li>Mr. K. K. Bhansali</li>
-          <li>Advocate ⁠Kirta Ram Meghwal</li>
-          <li>Mr. Suhale Mohammed</li>
-          <li>Mrs. Razia Begum</li>
-          <li>Mr. Bhagaram Meghwal</li>
-          <li>Mr. Ashok Paliwal</li>
-          <li>Mr. Rais Ahmed</li>
-          <li>Mr. Amit Baxi</li>
-          <li>Dr. Hem Borker</li>
-          <li>Mr. Lubas Chandra Rathore</li>
-        </ul>
+        <h3 class="lang-hi">
+          "हम एक ऐसे भविष्य की कल्पना करते हैं जहां कौशल से आय मिले, आय से स्वतंत्रता मिले, और स्वतंत्रता से गरिमा मिले।"
+        </h3>
+      </div>
+    </div>
+    <div class="vision-bg-pattern"></div>
+  </section>
+
+  <section class="home-section mission-section">
+    <div class="container-wrapper">
+      <div class="section-header">
+        <h2 class="lang-en" style="color: var(--text);">Our Mission</h2>
+        <h2 class="lang-hi" style="color: var(--text);">हमारा मिशन</h2>
+        <p class="lang-en">Building the pathway from learning to earning.</p>
+        <p class="lang-hi">सीखने से कमाने तक का रास्ता बनाना।</p>
       </div>
 
-      <div class="committee-block full-width">
-        <h3 class="committee-title">
-          <span class="lang-en">Organizing Committee</span>
-          <span class="lang-hi">आयोजन समिति</span>
-        </h3>
-        <ul class="name-list dense-grid">
-          <li>Mrs. Shah Bano</li>
-          <li>⁠Ishita Jain</li>
-          <li>Dr. Misbah Ahmed</li>
-          <li>XEN Sabeena Bano</li>
-          <li>Jyoti Tripathi</li>
-          <li>⁠Dr. Surta Ram Bishnoi</li>
-          <li>Sita Mahur</li>
-          <li>Khujista Qazi</li>
-          <li>Arti Sai</li>
-          <li>Anjali Jedia</li>
-          <li>Kadir Ahmed</li>
-          <li>Dr. Ajay Jain</li>
-          <li>Madhushree Chaudhary</li>
-          <li>Kirpa Chand</li>
-          <li>Dr. Dinesh Tak</li>
-          <li>Ameen Abbasi</li>
-          <li>Iti Verma</li>
-          <li>Dr. Shabnam Khan</li>
-          <li>⁠Anita Bishnoi</li>
-          <li>Leela Chaudhary</li>
-          <li>Kundan Gehlot</li>
-          <li>Rukhsar Bhati</li>
-          <li>Heba Fatima</li>
-          <li>Anupriya Saroj</li>
-          <li>Rishab Alok</li>
-          <li>Tanaz Ansari</li>
-          <li>Dehish Mohammed</li>
-          <li>Gorisha Sharma</li>
-          <li>⁠Amaan Sheikh</li>
-          <li>Sumit Karwa</li>
-        </ul>
+      <div class="mission-grid">
+      
+      <div class="mission-box photo-card" style="background-image: url('img/om-1.png');">
+        <div class="mbox-overlay"></div>
+        <div class="mbox-content">
+          <div class="mbox-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+          </div>
+          <h4 class="lang-en">Community Rooted</h4>
+          <h4 class="lang-hi">समुदाय आधारित</h4>
+          <p class="lang-en">Skill development isn't top-down. We build programs based on the specific needs of the neighborhoods we serve.</p>
+          <p class="lang-hi">कौशल विकास ऊपर से नहीं थोपा जाता। हम इसे मोहल्लों की विशिष्ट जरूरतों के आधार पर बनाते हैं।</p>
+        </div>
+      </div>
+
+      <div class="mission-box photo-card" style="background-image: url('img/om-2.png');">
+        <div class="mbox-overlay"></div>
+        <div class="mbox-content">
+          <div class="mbox-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          </div>
+          <h4 class="lang-en">Production Readiness</h4>
+          <h4 class="lang-hi">उत्पादन तैयारी</h4>
+          <p class="lang-en">We move beyond basic training to professional quality control, ensuring products are ready for the real market.</p>
+          <p class="lang-hi">हम बुनियादी प्रशिक्षण से आगे बढ़कर पेशेवर गुणवत्ता पर ध्यान देते हैं, ताकि उत्पाद बाजार के लिए तैयार हों।</p>
+        </div>
+      </div>
+
+      <div class="mission-box photo-card" style="background-image: url('img/om-3.png');">
+        <div class="mbox-overlay"></div>
+        <div class="mbox-content">
+          <div class="mbox-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+          </div>
+          <h4 class="lang-en">Market Linkages</h4>
+          <h4 class="lang-hi">बाजार संपर्क</h4>
+          <p class="lang-en">Training is useless without income. We actively build bridges to livelihood opportunities and fair wages.</p>
+          <p class="lang-hi">आय के बिना प्रशिक्षण बेकार है। हम आजीविका के अवसरों और उचित मजदूरी के लिए पुल बनाते हैं।</p>
+        </div>
+      </div>
+
+      <div class="mission-box photo-card" style="background-image: url('img/om-4.png');">
+        <div class="mbox-overlay"></div>
+        <div class="mbox-content">
+          <div class="mbox-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+          </div>
+          <h4 class="lang-en">Dignity & Trust</h4>
+          <h4 class="lang-hi">गरिमा और विश्वास</h4>
+          <p class="lang-en">Our ultimate metric is not just money, but the embedding of dignity, trust, and proximity in every interaction.</p>
+          <p class="lang-hi">हमारा अंतिम पैमाना केवल पैसा नहीं, बल्कि हर बातचीत में गरिमा, विश्वास और अपनापन है।</p>
+        </div>
       </div>
 
     </div>
+    </div>
   </section>
 
-  <!-- LEGAL -->
-  <section class="page-section">
-    <h2>
-      <span class="lang-en">Legal & Transparency</span>
-      <span class="lang-hi">विधिक जानकारी और पारदर्शिता</span>
-    </h2>
+    <section class="home-section challenges-grid-section">
+      <div class="container-wrapper">
+        
+        <div class="section-header align-left">
+          <h2 class="lang-en">The Gap We Bridge</h2>
+          <h2 class="lang-hi">खाई जिसे हम पाट रहे हैं</h2>
+          <p class="lang-en" style="max-width: 600px;">NISA exists to dismantle specific, interconnected barriers that hold women back.</p>
+          <p class="lang-hi" style="max-width: 600px;">नीसा उन विशिष्ट बाधाओं को दूर करने के लिए है जो महिलाओं को पीछे रोकती हैं।</p>
+        </div>
 
-    <p class="lang-en">
-      NISA is a unit of the Suhale Foundation. Our registration and compliance documents, including tax exemption certificates
-      (80G / 12A / ATG), are available to donors and partners on request.
-    </p>
+        <div class="blueprint-grid bp-grid-wrapper">
+          
+          <div class="bp-card color-primary">
+            <div class="bp-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"></path></svg>
+            </div>
+            <div class="bp-content">
+              <h4 class="lang-en">Access Deficit</h4>
+              <h4 class="lang-hi">पहुंच की कमी</h4>
+              <p class="lang-en">Limited access to skill training & literacy in local neighborhoods.</p>
+              <p class="lang-hi">स्थानीय मोहल्लों में कौशल प्रशिक्षण और साक्षरता तक सीमित पहुंच।</p>
+            </div>
+          </div>
 
-    <p class="lang-hi">
-      नीसा, सुहैले फाउंडेशन की इकाई है। हमारी पंजीकरण और कर-मुक्ति (80G / 12A / ATG) से जुड़ी सूचनाएँ दानदाताओं और भागीदारों के लिए अनुरोध
-      करने पर उपलब्ध कराई जाती हैं। हम जिम्मेदार और पारदर्शी उपयोग के लिए प्रतिबद्ध हैं।
-    </p>
-  </section>
+          <div class="bp-card color-tertiary">
+            <div class="bp-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+            </div>
+            <div class="bp-content">
+              <h4 class="lang-en">Education Gap</h4>
+              <h4 class="lang-hi">शिक्षा अंतराल</h4>
+              <p class="lang-en">High rates of early school dropout leading to fragile educational foundations.</p>
+              <p class="lang-hi">स्कूल छोड़ने की उच्च दर जिससे शैक्षिक नींव कमजोर हो जाती है।</p>
+            </div>
+          </div>
 
-</main>
+          <div class="bp-card color-secondary">
+            <div class="bp-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            </div>
+            <div class="bp-content">
+              <h4 class="lang-en">Legal Security</h4>
+              <h4 class="lang-hi">कानूनी सुरक्षा</h4>
+              <p class="lang-en">Insecure marriages, domestic instability, and a lack of legal aid.</p>
+              <p class="lang-hi">असुरक्षित विवाह, घरेलू अस्थिरता और कानूनी सहायता का अभाव।</p>
+            </div>
+          </div>
 
-  <!-- FOOTER -->
+          <div class="bp-card color-accent">
+            <div class="bp-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+            </div>
+            <div class="bp-content">
+              <h4 class="lang-en">Economic Void</h4>
+              <h4 class="lang-hi">आर्थिक शून्य</h4>
+              <p class="lang-en">No visible pathways to dignified, home-based earning opportunities.</p>
+              <p class="lang-hi">सम्मानजनक, घर-आधारित कमाई के अवसरों का अभाव।</p>
+            </div>
+          </div>
+
+          <div class="bp-card color-primary">
+            <div class="bp-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+            </div>
+            <div class="bp-content">
+              <h4 class="lang-en">Social Stigma</h4>
+              <h4 class="lang-hi">सामाजिक कलंक</h4>
+              <p class="lang-en">Deep-rooted societal stigma surrounding women working outside the home.</p>
+              <p class="lang-hi">घर से बाहर काम करने वाली महिलाओं के प्रति गहरा सामाजिक कलंक।</p>
+            </div>
+          </div>
+
+          <div class="bp-card color-tertiary">
+            <div class="bp-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+            </div>
+            <div class="bp-content">
+              <h4 class="lang-en">Institutional Gap</h4>
+              <h4 class="lang-hi">संस्थागत अंतर</h4>
+              <p class="lang-en">A lack of support systems or NGOs operating within close proximity.</p>
+              <p class="lang-hi">आस-पास काम करने वाली सहायता प्रणालियों या एनजीओ की कमी।</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="home-section">
+      <div class="grid-2 align-center" style="max-width: 1080px; margin: 0 auto;">
+        
+        <div class="text-content">
+          <p class="page-kicker" style="color: var(--accent); font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1rem;">
+            <span class="lang-en">Our Roots</span><span class="lang-hi">हमारी जड़ें</span>
+          </p>
+          <h2 style="margin-bottom: 1.5rem;">
+            <span class="lang-en">The Fabric of Our Foundation</span>
+            <span class="lang-hi">हमारी नींव की कहानी</span>
+          </h2>
+          <p class="lang-en">
+            The Suhale Foundation is named after Mr Suhale, who as a student leader mobilised women for their rights. His belief that a community rises when its women rise remains our guiding principle.
+          </p>
+          <p class="lang-hi">
+            सुहैले फाउंडेशन का नाम श्री सुहैले के नाम पर है, जिन्होंने एक छात्र नेता के रूप में महिलाओं को उनके अधिकारों के लिए एकजुट किया। उनका यह विश्वास कि समुदाय तभी आगे बढ़ता है जब उसकी महिलाएं आगे बढ़ती हैं, हमारा मार्गदर्शक सिद्धांत है।
+          </p>
+          
+          <p class="lang-en" style="margin-top: 1rem;">
+            The name <strong>NISA</strong>, meaning women in Arabic, honours Khair-un-Nisa, the grandmother of our founder. Her insistence on dignity and courage became the emotional foundation of our work.
+          </p>
+          <p class="lang-hi" style="margin-top: 1rem;">
+            <strong>नीसा</strong> नाम (अरबी में जिसका अर्थ महिलाएं हैं), हमारी संस्थापक की दादी खैर-उन्न-निसा को समर्पित है। गरिमा और साहस पर उनका जोर हमारे काम की भावनात्मक नींव बन गया।
+          </p>
+
+          <div class="highlight-box" style="margin-top: 2rem; border-left: 4px solid var(--accent); padding-left: 1.5rem; color: var(--text);">
+            <p class="lang-en" style="font-size: 1.1rem;">Today, NISA stands for <br><strong>Nurturing Independence, Strength &amp; Advocacy.</strong></p>
+            <p class="lang-hi" style="font-size: 1.1rem;">आज नीसा का अर्थ है <br><strong>स्वतंत्रता, शक्ति और वकालत को पोषित करना।</strong></p>
+          </div>
+        </div>
+
+        <div class="image-content">
+          <img src="img/NisaLogoBlue.webp" alt="Foundation" style="width: 100%; border-radius: var(--radius-md); box-shadow: var(--shadow-soft);">
+        </div>
+
+      </div>
+    </section>
+
+    <section class="video-story-section">
+      <video class="story-bg-video" autoplay muted loop playsinline>
+        <source src="img/team.MP4" type="video/mp4">
+      </video>
+      <div class="story-overlay"></div>
+      
+      <div class="story-content-box" style="text-align: center;">
+        <p class="kicker"><span class="lang-en">From the Director</span><span class="lang-hi">निदेशक की ओर से</span></p>
+        <h2 style="max-width: 800px; margin: 0 auto 2rem auto;">
+          <span class="lang-en">"We started this journey not just to teach skills, but to build a sisterhood."</span>
+          <span class="lang-hi">"हमने यह सफर केवल कौशल सिखाने के लिए नहीं, बल्कि एक बहनचारा बनाने के लिए शुरू किया।"</span>
+        </h2>
+      </div>
+    </section>
+
+    <section class="home-section leadership-section">
+      <div class="container-wrapper">
+        
+        <div class="section-header">
+          <h2 class="lang-en">Our Board</h2>
+          <h2 class="lang-hi">हमारा बोर्ड</h2>
+          <p class="lang-en">The visionaries guiding our mission.</p>
+          <p class="lang-hi">हमारे मिशन का मार्गदर्शन करने वाले दूरदर्शी।</p>
+        </div>
+
+        <div class="board-grid">
+          <article class="board-member">
+            <div class="member-img">
+              <img src="img/parveens.jpg" alt="Parveen Sheikh">
+            </div>
+            <div class="member-info">
+              <h3 class="lang-en">Parveen Sheikh</h3><h3 class="lang-hi">परवीन शेख</h3>
+              <span class="role">Founder</span>
+            </div>
+          </article>
+
+          <article class="board-member">
+            <div class="member-img">
+              <img src="img/bhikad.jpg" alt="Bhika Devi">
+            </div>
+            <div class="member-info">
+              <h3 class="lang-en">Bhika Devi</h3><h3 class="lang-hi">भीखा देवी</h3>
+              <span class="role">Director</span>
+            </div>
+          </article>
+
+          <article class="board-member">
+            <div class="member-img">
+              <img src="img/suhalem.jpg" alt="Suhale Mohammed">
+            </div>
+            <div class="member-info">
+              <h3 class="lang-en">Suhale Mohammed</h3><h3 class="lang-hi">सुहैल मोहम्मद</h3>
+              <span class="role">Board Member</span>
+            </div>
+          </article>
+
+          <article class="board-member">
+            <div class="member-img">
+              <img src="img/shahb.jpg" alt="Shah Bano">
+            </div>
+            <div class="member-info">
+              <h3 class="lang-en">Shah Bano</h3><h3 class="lang-hi">शाह बानो</h3>
+              <span class="role">Board Member</span>
+            </div>
+          </article>
+
+          <article class="board-member">
+            <div class="member-img">
+              <img src="img/kadira.jpg" alt="New Member">
+            </div>
+            <div class="member-info">
+              <h3 class="lang-en">Qadir Ahmed</h3><h3 class="lang-hi">कदिर अहमद</h3>
+              <span class="role">Board Member</span>
+            </div>
+          </article>
+        </div>
+
+        <div class="section-separator-fade" style="margin: 5rem auto;"></div>
+
+        <div class="committees-layout">
+          
+          <div class="committee-block advisory-block">
+            <div class="c-header">
+              <h3 class="lang-en">Advisory Board</h3>
+              <h3 class="lang-hi">सलाहकार बोर्ड</h3>
+              <div class="c-line line-teal"></div>
+            </div>
+            <ul class="c-list grid-2-col">
+              <li>Mr. K. K. Bhansali</li>
+              <li>Advocate Kirta Ram Meghwal</li>
+              <li>Mr. Suhale Mohammed</li>
+              <li>Mrs. Razia Begum</li>
+              <li>Mr. Bhagaram Meghwal</li>
+              <li>Mr. Ashok Paliwal</li>
+              <li>Mr. Rais Ahmed</li>
+              <li>Mr. Amit Baxi</li>
+              <li>Dr. Hem Borker</li>
+              <li>Mr. Lubas Chandra Rathore</li>
+            </ul>
+          </div>
+
+          <div class="committee-block organizing-block">
+            <div class="c-header">
+              <h3 class="lang-en">Organizing Committee</h3>
+              <h3 class="lang-hi">आयोजन समिति</h3>
+              <div class="c-line line-orange"></div>
+            </div>
+            <ul class="c-list grid-3-col">
+              <li>Mrs. Shah Bano</li><li>Ishita Jain</li><li>Dr. Misbah Ahmed</li>
+              <li>XEN Sabeena Bano</li><li>Jyoti Tripathi</li><li>Dr. Surta Ram Bishnoi</li>
+              <li>Sita Mahur</li><li>Khujista Qazi</li><li>Arti Sai</li>
+              <li>Anjali Jedia</li><li>Kadir Ahmed</li><li>Dr. Ajay Jain</li>
+              <li>Madhushree Chaudhary</li><li>Kirpa Chand</li><li>Dr. Dinesh Tak</li>
+              <li>Ameen Abbasi</li><li>Iti Verma</li><li>Dr. Shabnam Khan</li>
+              <li>Anita Bishnoi</li><li>Leela Chaudhary</li><li>Kundan Gehlot</li>
+              <li>Rukhsar Bhati</li><li>Heba Fatima</li><li>Anupriya Saroj</li>
+              <li>Rishab Alok</li><li>Tanaz Ansari</li><li>Dehish Mohammed</li>
+              <li>Gorisha Sharma</li><li>Amaan Sheikh</li><li>Sumit Karwa</li>
+            </ul>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
   <footer class="main-footer">
     <div class="footer-inner">
-      <div class="footer-impact">
-        <h4 class="lang-en">Impact Snapshot</h4>
-        <h4 class="lang-hi">प्रभाव संक्षेप</h4>
-        <p>
-          <span class="impact-counter" data-target="80">80</span>+
-          <span class="lang-en">women enrolled</span>
-          <span class="lang-hi">महिलाएँ नामांकित</span>
-        </p>
-      </div>
-
-      <div class="footer-links">
-        <a href="privacy.html">
-          <span class="lang-en">Privacy Policy</span>
-          <span class="lang-hi">गोपनीयता नीति</span>
-        </a>
-        <a href="terms.html">
-          <span class="lang-en">Terms of Service</span>
-          <span class="lang-hi">सेवा की शर्तें</span>
-        </a>
-        <a href="refund.html">
-          <span class="lang-en">Refund Policy</span>
-          <span class="lang-hi">धनवापसी नीति</span>
-        </a>
-      </div>
-
-      <p class="copyright">
-        <span class="lang-en">
-          © <span id="year"></span> NISA by Suhale Foundation. All rights reserved.
-        </span>
-        <span class="lang-hi">
-          © <span id="year"></span> नीसा, सुहैले फाउंडेशन द्वारा। सभी अधिकार सुरक्षित।
-        </span>
-      </p>
+      <div class="footer-impact"><h4 class="lang-en">Impact Snapshot</h4><h4 class="lang-hi">प्रभाव संक्षेप</h4><p><span class="impact-counter" data-target="80">80</span>+ <span class="lang-en">women enrolled</span><span class="lang-hi">महिलाएँ नामांकित</span></p></div>
+      <div class="footer-links"><a href="privacy.html"><span class="lang-en">Privacy Policy</span><span class="lang-hi">गोपनीयता नीति</span></a><a href="terms.html"><span class="lang-en">Terms of Service</span><span class="lang-hi">सेवा की शर्तें</span></a></div>
+      <p class="copyright"><span class="lang-en">© <span id="year"></span> NISA by Suhale Foundation.</span><span class="lang-hi">© <span id="year"></span> नीसा, सुहैले फाउंडेशन द्वारा।</span></p>
     </div>
   </footer>
 
   <script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
   <script src="js/script.js"></script>
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+      
+    // 1. DEFINE GROUPS
+    // The Container (for Watermark)
+    const heroTextContainer = document.querySelector('.hero-about-text');
+
+    // Group A: The Main Title (H1)
+    const titleLines = document.querySelectorAll('.hero-about-text h1 .line-reveal');
+      
+    // Group B: The "Rest" (Badge, Paragraph)
+    const secondaryElements = document.querySelectorAll('.hero-badge.line-reveal, .hero-lead.line-reveal');
+      
+    // Group C: The Image
+    const heroImage = document.querySelector('.hero-about-image img');
+
+
+    // 2. PHASE 0: WATERMARK FADE IN (Starts immediately)
+    setTimeout(() => {
+      heroTextContainer.classList.add('watermark-visible');
+    }, 100);
+
+
+    // 3. PHASE 1: REVEAL TITLE ONLY (Starts after watermark is fading in)
+    titleLines.forEach((el, index) => {
+      setTimeout(() => {
+        el.classList.add('visible');
+      }, 800 + (index * 300)); 
+    });
+
+
+    // 4. PHASE 2: REVEAL THE REST (Starts after title is mostly done)
+    setTimeout(() => {
+      // Reveal Badge and Paragraphs
+      secondaryElements.forEach((el) => {
+        el.classList.add('visible');
+      });
+
+      // Reveal Image
+      if (heroImage) heroImage.classList.add('visible');
+    }, 2000);
+
+
+    // 5. PHASE 3: REVEAL NAVBAR (Last)
+    setTimeout(() => {
+      document.body.classList.add("site-loaded");
+      document.body.classList.add("nav-ready");
+    }, 3100); 
+
+  });
+</script>
 </body>
 </html>

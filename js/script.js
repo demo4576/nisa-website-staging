@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
 
   /* =========================================
-     0. PRELOADER (FIXED 5 SECONDS)
+     0. PRELOADER & SITE REVEAL
      ========================================= */
   const preloader = document.getElementById("preloader");
   const body = document.body;
@@ -10,29 +10,36 @@ document.addEventListener("DOMContentLoaded", () => {
     history.scrollRestoration = 'manual'; 
   }
 
-  // 1. Lock scroll immediately
+  // SCENARIO A: Preloader exists (Homepage)
   if(preloader) {
+    // 1. Lock scroll immediately
     body.style.overflow = "hidden";
     window.scrollTo(0, 0); 
-  }
 
-  // 2. Wait 2.6 Seconds (2600ms) then fade out
-  setTimeout(() => {
-    if (!preloader) return;
-    
-    // Start fade out animation
-    preloader.classList.add("fade-out");
-    
-    // This triggers the CSS to show the header
-    body.classList.add("site-loaded"); 
-    // ---------------------
-    
-    // Wait for CSS transition (0.6s) to finish, then unlock scroll
+    // 2. Wait 2.6 Seconds then fade out
     setTimeout(() => {
-      body.style.overflow = ""; 
-    }, 600);
+      preloader.classList.add("fade-out");
+      body.classList.add("site-loaded"); // <--- Shows the header
+      
+      // Wait for transition, then unlock scroll
+      setTimeout(() => {
+        body.style.overflow = ""; 
+      }, 600);
+    }, 2600);
 
-  }, 2600);
+  } 
+  // SCENARIO B: No preloader (About/Internal Pages)
+  else {
+    // Check if the page wants to control the reveal manually (e.g. About Page)
+    if (document.body.classList.contains("manual-reveal")) {
+      // Do nothing here. The specific page's <script> will handle the reveal.
+    } else {
+      // Default behavior: Immediate reveal for standard pages
+      setTimeout(() => {
+        body.classList.add("site-loaded");
+      }, 100); 
+    }
+  }
 
   /* =========================================
      1. INITIALIZE LENIS (SMOOTH SCROLL)
@@ -151,46 +158,48 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   /* =========================================
-     4. HEADER SCROLL STATE
+     4. HEADER SCROLL STATE & COLLISION
      ========================================= */
   (function setupHeaderScrollState() {
     const hero = document.getElementById("hero");
     const header = document.querySelector(".split-header");
-    const heroText = document.querySelector(".hero-text"); 
-
+    // Specifically target the text container in the About Hero
+    const heroTextContainer = document.querySelector(".hero-about-text"); 
+    
     if (!header) return;
 
     function updateHeader() {
-      // If no hero (inner page), always show scrolled state after small scroll
-      if (!hero) {
-        if (window.scrollY > 50) body.classList.add("scrolled");
-        else body.classList.remove("scrolled");
-        return;
-      }
-
-      const headerHeight = header.offsetHeight || 0;
+      const scrollY = window.scrollY;
+      const headerHeight = header.offsetHeight;
       
-      // 1. Text Overlap Detection (Fades elements before collision)
-      if (heroText) {
-        const textRect = heroText.getBoundingClientRect();
-        if (textRect.top <= headerHeight + 20) {
-          body.classList.add("overlap-text");
-        } else {
-          body.classList.remove("overlap-text");
-        }
-      }
-
-      // 2. Past Hero Detection (Changes header background)
-      const heroRect = hero.getBoundingClientRect();
-      const isPastHero = heroRect.bottom - headerHeight <= 0;
-
-      if (isPastHero) {
+      // A. SCROLLED STATE (Generic)
+      if (scrollY > 50) {
         body.classList.add("scrolled");
       } else {
         body.classList.remove("scrolled");
       }
+
+      // B. COLLISION DETECTION (Logo vs Hero Text)
+      // Only run collision logic if we have scrolled a bit to avoid initial load issues
+      if (heroTextContainer && scrollY > 10) {
+        const textRect = heroTextContainer.getBoundingClientRect();
+        
+        // Define safety zone. Reduced buffer to prevent immediate triggering.
+        // The logo will fade out when the text gets within 10px of the header bottom.
+        const collisionThreshold = headerHeight + 10; 
+        
+        if (textRect.top <= collisionThreshold) {
+          body.classList.add("overlap-text"); // CSS hides .header-side
+        } else {
+          body.classList.remove("overlap-text");
+        }
+      } else {
+         // Ensure it's removed at the very top
+         body.classList.remove("overlap-text");
+      }
     }
 
+    // Run immediately to set initial state, then on scroll
     updateHeader();
     window.addEventListener("scroll", updateHeader, { passive: true });
   })();
@@ -550,3 +559,214 @@ document.addEventListener("DOMContentLoaded", () => {
   // Re-check on resize (in case user flips tablet orientation)
   window.addEventListener("resize", initMobileObserver);
 })();
+
+/* =========================================
+     16. LETTER-BY-LETTER SCROLL REVEAL (TUNED)
+     ========================================= */
+  (function setupCharReveal() {
+    const contentDiv = document.querySelector(".editorial-content");
+    if (!contentDiv) return;
+
+    // A. Helper: Split text into characters
+    function splitTextToChars(node) {
+      if (node.nodeType === 3) { // Text Node
+        const text = node.textContent;
+        if (!text.trim() && !text.includes('\n')) return; 
+        
+        const wrapper = document.createDocumentFragment();
+        const words = text.split(/(\s+)/); 
+        
+        words.forEach(word => {
+          if (word.match(/^\s+$/)) {
+            wrapper.appendChild(document.createTextNode(word));
+          } else {
+            const letters = word.split("");
+            letters.forEach(letter => {
+              const span = document.createElement("span");
+              span.classList.add("reveal-char");
+              span.textContent = letter;
+              wrapper.appendChild(span);
+            });
+          }
+        });
+        node.replaceWith(wrapper);
+      } else if (node.nodeType === 1) { 
+        Array.from(node.childNodes).forEach(splitTextToChars);
+      }
+    }
+
+    // B. Run the splitter
+    const paragraphs = contentDiv.querySelectorAll("p");
+    paragraphs.forEach(p => splitTextToChars(p));
+
+    // C. Scroll Logic
+    const allChars = document.querySelectorAll(".reveal-char");
+
+    function onScroll() {
+      const windowHeight = window.innerHeight;
+      
+      // FIX 1: Raise the trigger line. 
+      // 0.65 means the text activates when it's slightly below the middle of the screen.
+      // (Previously 0.85 was too low).
+      const baseTrigger = windowHeight * 0.65;
+
+      allChars.forEach(char => {
+        const box = char.getBoundingClientRect();
+        
+        // FIX 2: Reduce horizontal friction.
+        // Changed 0.4 to 0.1. This reduces the "lag" on the right side
+        // so the paragraph finishes reading before the next one starts.
+        const horizontalDelay = box.left * 0.1; 
+        
+        const triggerPoint = baseTrigger - horizontalDelay;
+
+        if (box.top < triggerPoint) {
+          char.classList.add("active");
+        } else {
+          char.classList.remove("active");
+        }
+      });
+    }
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    onScroll();
+  })();
+
+  /* =========================================
+   17. MISSION GRID REVEAL (SLOWER STAGGER)
+   ========================================= */
+(function setupMissionReveal() {
+  const grid = document.querySelector('.mission-grid');
+  const cards = document.querySelectorAll('.mission-box');
+  
+  if (!grid || !cards.length) return;
+
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        
+        // Reveal cards one by one with a slower rhythm
+        cards.forEach((card, i) => {
+          setTimeout(() => {
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+          }, i * 300); // Changed from 150 to 300 for distinct steps
+        });
+
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 }); // Wait until 20% of section is visible
+
+  // Set initial state
+  cards.forEach(card => {
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(40px)'; // Start slightly lower for more drama
+    // Slower ease for the movement itself
+    card.style.transition = 'opacity 0.8s ease, transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1)';
+  });
+
+  observer.observe(grid);
+})();
+
+/* =========================================
+   18. VISION SECTION: CLARITY REVEAL & PARALLAX
+   ========================================= */
+(function setupVisionEffects() {
+  const section = document.querySelector('.vision-banner');
+  const content = document.querySelector('.vision-content');
+  const pattern = document.querySelector('.vision-bg-pattern');
+
+  if (!section || !content) return;
+
+  // A. The "Focus" Reveal (Intersection Observer)
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        content.classList.add('in-view');
+        // Optional: Stop observing once revealed
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.35 }); // Trigger when 35% visible
+
+  observer.observe(section);
+
+  // B. The Background Parallax (Scroll Event)
+  // Only runs on desktop/tablets to save battery on mobile
+  if (window.innerWidth > 768 && pattern) {
+    window.addEventListener('scroll', () => {
+      const rect = section.getBoundingClientRect();
+      const viewHeight = window.innerHeight;
+
+      // Check if section is in viewport
+      if (rect.top < viewHeight && rect.bottom > 0) {
+        // Calculate scroll progress relative to the section
+        // Moving the background slower (multiply by -0.1) creates depth
+        const moveY = (rect.top * -0.15); 
+        pattern.style.transform = `translateY(${moveY}px)`;
+      }
+    }, { passive: true });
+  }
+})();
+
+/* =========================================
+   19. CHALLENGES STAGGER REVEAL
+   ========================================= */
+(function setupChallengeReveal() {
+  const section = document.querySelector('.challenges-section');
+  const rows = document.querySelectorAll('.c-row');
+  const image = document.querySelector('.challenges-image');
+
+  if (!section || !rows.length) return;
+
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        
+        // 1. Reveal the Image
+        if (image) image.classList.add('revealed');
+
+        // 2. Stagger reveal the rows
+        rows.forEach((row, index) => {
+          setTimeout(() => {
+            row.classList.add('revealed');
+          }, index * 150); // 150ms delay between each line
+        });
+
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.25 });
+
+  observer.observe(section);
+})();
+
+/* =========================================
+     20. BLUEPRINT GRID STAGGER REVEAL
+     ========================================= */
+  (function setupBlueprintReveal() {
+    const gridWrapper = document.querySelector('.bp-grid-wrapper');
+    const cards = document.querySelectorAll('.bp-card');
+
+    if (!gridWrapper || !cards.length) return;
+
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          
+          // Stagger the reveal for each card
+          cards.forEach((card, index) => {
+            setTimeout(() => {
+              card.classList.add('revealed');
+            }, index * 100); // 100ms delay between each card
+          });
+
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    observer.observe(gridWrapper);
+  })();

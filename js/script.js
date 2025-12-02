@@ -794,3 +794,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
     observer.observe(gridWrapper);
   })();
+
+  /* =========================================
+     21. GENERIC SCROLL REVEAL (For Donate Page)
+     ========================================= */
+  const scrollElements = document.querySelectorAll(".reveal-on-scroll");
+
+  if (scrollElements.length > 0) {
+    const scrollObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Add 'is-visible' class when element enters viewport
+          entry.target.classList.add("is-visible");
+          // Stop watching once revealed (optional: remove this line if you want it to replay)
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.15, // Trigger when 15% of element is visible
+      rootMargin: "0px 0px -50px 0px" // Offset slightly so it doesn't trigger at very bottom edge
+    });
+
+    scrollElements.forEach(el => scrollObserver.observe(el));
+  }

@@ -2,364 +2,252 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Gallery</title>
+  <title>Gallery | NISA</title>
   <link rel="icon" type="image/png" href="img/NisaLogoBlue.webp">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
-<body>
-  <!-- HEADER + NAV -->
-  <header class="split-header">
-  
-  <div class="header-side header-left">
-    <a href="index.html" class="brand">
-      <img src="img/white-symbol.png" alt="NISA White" class="brand-logo logo-white"/>
-      <img src="img/blue-symbol.png" alt="NISA Blue" class="brand-logo logo-blue"/>
-    </a>
-  </div>
+<body class="gallery-page">
 
-  <nav class="header-center nav-pill">
-    <ul class="pill-menu">
-      
-      <li class="pill-item">
-        <button class="pill-link">
-          <span class="lang-en">About NISA</span>
-          <span class="lang-hi">नीसा के बारे में</span>
-          <svg width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 1L5 5L9 1"/></svg>
-        </button>
-        <div class="dropdown-mega">
-          <div class="dropdown-inner">
-            <a href="about.html" class="mega-link">
-              <strong>
-                <span class="lang-en">About Us</span>
-                <span class="lang-hi">हमारे बारे में</span>
-              </strong>
-              <span>
-                <span class="lang-en">Our story & mission</span>
-                <span class="lang-hi">हमारी कहानी और मिशन</span>
-              </span>
-            </a>
-            <a href="work.html" class="mega-link">
-              <strong>
-                <span class="lang-en">Our Work</span>
-                <span class="lang-hi">हमारा काम</span>
-              </strong>
-              <span>
-                <span class="lang-en">What we do</span>
-                <span class="lang-hi">हम क्या करते हैं</span>
-              </span>
-            </a>
-            <a href="gallery.html" class="mega-link">
-              <strong>
-                <span class="lang-en">Gallery</span>
-                <span class="lang-hi">गैलरी</span>
-              </strong>
-              <span>
-                <span class="lang-en">Images from the field</span>
-                <span class="lang-hi">मैदान से तस्वीरें</span>
-              </span>
-            </a>
-            <a href="events.html" class="mega-link">
-              <strong>
-                <span class="lang-en">Events & Blog</span>
-                <span class="lang-hi">कार्यक्रम / ब्लॉग</span>
-              </strong>
-              <span>
-                <span class="lang-en">Latest updates</span>
-                <span class="lang-hi">नवीनतम अपडेट</span>
-              </span>
-            </a>
+  <header class="split-header header-force-blue header-delayed">
+    <div class="header-side header-left">
+      <a href="index.html" class="brand">
+        <img src="img/white-symbol.png" alt="NISA White" class="brand-logo logo-white"/>
+        <img src="img/blue-symbol.png" alt="NISA Blue" class="brand-logo logo-blue"/>
+      </a>
+    </div>
+
+    <nav class="header-center nav-pill">
+      <ul class="pill-menu">
+        <li class="pill-item">
+          <button class="pill-link">
+            <span class="lang-en">About NISA</span>
+            <span class="lang-hi">नीसा के बारे में</span>
+            <svg width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 1L5 5L9 1"/></svg>
+          </button>
+          <div class="dropdown-mega">
+            <div class="dropdown-inner">
+              <a href="about.html" class="mega-link"><strong><span class="lang-en">About Us</span><span class="lang-hi">हमारे बारे में</span></strong><span><span class="lang-en">Our story & mission</span><span class="lang-hi">हमारी कहानी और मिशन</span></span></a>
+              <a href="work.html" class="mega-link"><strong><span class="lang-en">Our Work</span><span class="lang-hi">हमारा काम</span></strong><span><span class="lang-en">What we do</span><span class="lang-hi">हम क्या करते हैं</span></span></a>
+              <a href="gallery.html" class="mega-link"><strong><span class="lang-en">Gallery</span><span class="lang-hi">गैलरी</span></strong><span><span class="lang-en">Images from the field</span><span class="lang-hi">मैदान से तस्वीरें</span></span></a>
+              <a href="events.html" class="mega-link"><strong><span class="lang-en">Events & Blog</span><span class="lang-hi">कार्यक्रम / ब्लॉग</span></strong><span><span class="lang-en">Latest updates</span><span class="lang-hi">नवीनतम अपडेट</span></span></a>
+            </div>
           </div>
-        </div>
-      </li>
-
-      <li class="pill-item">
-        <button class="pill-link">
-          <span class="lang-en">Take Action</span>
-          <span class="lang-hi">सहयोग करें</span>
-          <svg width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 1L5 5L9 1"/></svg>
-        </button>
-        <div class="dropdown-mega">
-          <div class="dropdown-inner">
-            <a href="get-involved.html" class="mega-link">
-              <strong>
-                <span class="lang-en">Volunteer</span>
-                <span class="lang-hi">स्वयंसेवक बनें</span>
-              </strong>
-              <span>
-                <span class="lang-en">Join our team</span>
-                <span class="lang-hi">हमारी टीम में शामिल हों</span>
-              </span>
-            </a>
-            <a href="donate.html" class="mega-link highlight">
-              <strong>
-                <span class="lang-en">Donate</span>
-                <span class="lang-hi">दान करें</span>
-              </strong>
-              <span>
-                <span class="lang-en">Support the cause</span>
-                <span class="lang-hi">आर्थिक सहयोग दें</span>
-              </span>
-            </a>
+        </li>
+        <li class="pill-item">
+          <button class="pill-link">
+            <span class="lang-en">Take Action</span>
+            <span class="lang-hi">सहयोग करें</span>
+            <svg width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 1L5 5L9 1"/></svg>
+          </button>
+           <div class="dropdown-mega">
+            <div class="dropdown-inner">
+              <a href="get-involved.html" class="mega-link">
+                <strong><span class="lang-en">Volunteer</span><span class="lang-hi">स्वयंसेवक बनें</span></strong>
+                <span><span class="lang-en">Join our team</span><span class="lang-hi">हमारी टीम में शामिल हों</span></span>
+              </a>
+              <a href="donate.html" class="mega-link highlight">
+                <strong><span class="lang-en">Donate</span><span class="lang-hi">दान करें</span></strong>
+                <span><span class="lang-en">Support the cause</span><span class="lang-hi">आर्थिक सहयोग दें</span></span>
+              </a>
+            </div>
           </div>
-        </div>
-      </li>
-
-      <li class="pill-item">
-        <button class="pill-link">
-          <span class="lang-en">Connect</span>
-          <span class="lang-hi">संपर्क करें</span>
-          <svg width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 1L5 5L9 1"/></svg>
-        </button>
-        <div class="dropdown-mega">
-          <div class="dropdown-inner">
-            <a href="contact.html" class="mega-link">
-              <strong>
-                <span class="lang-en">Contact Us</span>
-                <span class="lang-hi">संपर्क करें</span>
-              </strong>
-              <span>
-                <span class="lang-en">Get in touch</span>
-                <span class="lang-hi">बातचीत शुरू करें</span>
-              </span>
-            </a>
-            <a href="#footer" class="mega-link"> 
-              <strong>
-                <span class="lang-en">Visit Us</span>
-                <span class="lang-hi">हमसे मिलें</span>
-              </strong>
-              <span>
-                <span class="lang-en">Find us in Jodhpur</span>
-                <span class="lang-hi">जोधपुर में हमारा पता</span>
-              </span>
-            </a>
+        </li>
+        <li class="pill-item">
+          <button class="pill-link">
+            <span class="lang-en">Connect</span>
+            <span class="lang-hi">संपर्क करें</span>
+            <svg width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 1L5 5L9 1"/></svg>
+          </button>
+           <div class="dropdown-mega">
+            <div class="dropdown-inner">
+              <a href="contact.html" class="mega-link">
+                <strong><span class="lang-en">Contact Us</span><span class="lang-hi">संपर्क करें</span></strong>
+                <span><span class="lang-en">Get in touch</span><span class="lang-hi">बातचीत शुरू करें</span></span>
+              </a>
+              <a href="#footer" class="mega-link"> 
+                <strong><span class="lang-en">Visit Us</span><span class="lang-hi">हमसे मिलें</span></strong>
+                <span><span class="lang-en">Find us in Jodhpur</span><span class="lang-hi">जोधपुर में हमारा पता</span></span>
+              </a>
+            </div>
           </div>
-        </div>
-      </li>
+        </li>
+      </ul>
+    </nav>
 
-    </ul>
-  </nav>
-
-  <div class="header-side header-right">
-    <button class="lang-toggle" id="lang-toggle" type="button">
-      <span class="lang-toggle-label lang-toggle-en">EN</span>
-      <span class="lang-toggle-sep">|</span>
-      <span class="lang-toggle-label lang-toggle-hi">हिंदी</span>
-    </button>
+    <div class="header-side header-right">
+      <button class="lang-toggle" id="lang-toggle" type="button">
+        <span class="lang-toggle-label lang-toggle-en">EN</span>
+        <span class="lang-toggle-sep">|</span>
+        <span class="lang-toggle-label lang-toggle-hi">हिंदी</span>
+      </button>
+      <button class="nav-toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+    </div>
     
-    <button class="nav-toggle" aria-label="Toggle navigation">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-
-  <div class="mobile-menu-overlay" id="mobile-menu">
-    <div class="mobile-menu-inner">
-      
+     <div class="mobile-menu-overlay" id="mobile-menu">
+      <div class="mobile-menu-inner">
       <nav class="mobile-nav">
         <ul class="mobile-list">
-          
-          <!-- About NISA -->
           <li class="mobile-item">
             <button class="mobile-accordion-btn">
-              <span>
-                <span class="lang-en">About NISA</span>
-                <span class="lang-hi">नीसा के बारे में</span>
-              </span>
+              <span><span class="lang-en">About NISA</span><span class="lang-hi">नीसा के बारे में</span></span>
               <span class="arrow">+</span>
             </button>
             <div class="mobile-sub-menu">
-              <a href="about.html">
-                <span class="lang-en">About Us</span>
-                <span class="lang-hi">हमारे बारे में</span>
-              </a>
-              <a href="work.html">
-                <span class="lang-en">Our Work</span>
-                <span class="lang-hi">हम क्या करते हैं</span>
-              </a>
-              <a href="gallery.html">
-                <span class="lang-en">Gallery</span>
-                <span class="lang-hi">गैलरी</span>
-              </a>
-              <a href="events.html">
-                <span class="lang-en">Events &amp; Blog</span>
-                <span class="lang-hi">कार्यक्रम / ब्लॉग</span>
-              </a>
+              <a href="about.html"><span class="lang-en">About Us</span><span class="lang-hi">हमारे बारे में</span></a>
+              <a href="work.html"><span class="lang-en">Our Work</span><span class="lang-hi">हम क्या करते हैं</span></a>
+              <a href="gallery.html"><span class="lang-en">Gallery</span><span class="lang-hi">गैलरी</span></a>
             </div>
           </li>
-
-          <!-- Take Action -->
-          <li class="mobile-item">
-            <button class="mobile-accordion-btn">
-              <span>
-                <span class="lang-en">Take Action</span>
-                <span class="lang-hi">सहयोग करें</span>
-              </span>
-              <span class="arrow">+</span>
-            </button>
-            <div class="mobile-sub-menu">
-              <a href="get-involved.html">
-                <span class="lang-en">Volunteer / Intern</span>
-                <span class="lang-hi">स्वयंसेवक / इंटर्न बनें</span>
-              </a>
-              <a href="donate.html" style="color: var(--accent);">
-                <span class="lang-en">Donate Now</span>
-                <span class="lang-hi">अभी दान करें</span>
-              </a>
-            </div>
-          </li>
-
-          <!-- Connect -->
-          <li class="mobile-item">
-            <button class="mobile-accordion-btn">
-              <span>
-                <span class="lang-en">Connect</span>
-                <span class="lang-hi">संपर्क करें</span>
-              </span>
-              <span class="arrow">+</span>
-            </button>
-            <div class="mobile-sub-menu">
-              <a href="contact.html">
-                <span class="lang-en">Contact Us</span>
-                <span class="lang-hi">संपर्क करें</span>
-              </a>
-              <a href="#footer">
-                <span class="lang-en">Visit Us</span>
-                <span class="lang-hi">हमसे मिलें</span>
-              </a>
-            </div>
-          </li>
-
-        </ul>
+           </ul>
       </nav>
-
       <div class="mobile-menu-footer">
         <a href="donate.html" class="btn btn-primary full-width">Donate / दान करें</a>
       </div>
+    </div>
+    </div>
+  </header>
 
+  <main>
+    
+    <section class="gallery-header">
+      <div class="gallery-intro">
+        <h1>
+          <span class="line-mask">
+          <span class="line-text lang-en">Moments in Motion</span>
+          <span class="line-text lang-hi">गतिमान पल</span>
+        </span>
+        </h1>
+        <div class="fade-in-delayed">
+          <p>
+            <span class="line-text lang-en">A visual archive of our community, training, and celebrations.</span>
+            <span class="line-text lang-hi">हमारे समुदाय, प्रशिक्षण और उत्सवों की झलकियों का दृश्य संग्रह।</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="fade-in-delayed">
+      
+        <div class="gallery-filters">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="training">Training</button>
+          <button class="filter-btn" data-filter="community">Community</button>
+          <button class="filter-btn" data-filter="video">Videos</button>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="mosaic-section">
+      <div class="fade-in-delayed">
+        <div class="mosaic-grid" id="mosaic-grid">
+          
+          <div class="mosaic-item reveal-on-scroll">
+            <img src="img/gallery/t1.jpg" alt="Sewing Training" loading="lazy">
+            <div class="item-overlay"><span class="item-cat">Training</span><h3>Skills Workshop</h3></div>
+          </div>
+
+          <div class="mosaic-item reveal-on-scroll">
+            <img src="img/gallery/t2.JPG" alt="Literacy Class" loading="lazy">
+            <div class="item-overlay"><span class="item-cat">Training</span><h3>Education First</h3></div>
+          </div>
+
+          <div class="mosaic-item reveal-on-scroll">
+            <img src="img/gallery/t3.JPG" alt="Training Session" loading="lazy">
+            <div class="item-overlay"><span class="item-cat">Training</span><h3>Hands-on Learning</h3></div>
+          </div>
+
+          <div class="mosaic-item reveal-on-scroll">
+            <img src="img/gallery/c2.JPG" alt="Celebration" loading="lazy">
+            <div class="item-overlay"><span class="item-cat">Community</span><h3>Local Celebration</h3></div>
+          </div>
+
+          <div class="mosaic-item reveal-on-scroll">
+            <img src="img/gallery/t4.JPG" alt="Vocational Training" loading="lazy">
+            <div class="item-overlay"><span class="item-cat">Training</span><h3>Building Futures</h3></div>
+          </div>
+
+          <div class="mosaic-item reveal-on-scroll">
+            <img src="img/gallery/t5.JPG" alt="Classroom" loading="lazy">
+            <div class="item-overlay"><span class="item-cat">Training</span><h3>Focus & Dedication</h3></div>
+          </div>
+
+          <div class="mosaic-item reveal-on-scroll">
+            <img src="img/gallery/t6.JPG" alt="Group Study" loading="lazy">
+            <div class="item-overlay"><span class="item-cat">Training</span><h3>Group Study</h3></div>
+          </div>
+
+          <div class="mosaic-item reveal-on-scroll">
+            <img src="img/gallery/c1.jpg" alt="Community Gathering" loading="lazy">
+            <div class="item-overlay"><span class="item-cat">Community</span><h3>Together We Rise</h3></div>
+          </div>
+
+          <div class="mosaic-item reveal-on-scroll">
+            <img src="img/gallery/t7.JPG" alt="Instruction" loading="lazy">
+            <div class="item-overlay"><span class="item-cat">Training</span><h3>Expert Instruction</h3></div>
+          </div>
+
+          <div class="mosaic-item reveal-on-scroll">
+            <img src="img/gallery/t8.JPG" alt="Workshop" loading="lazy">
+            <div class="item-overlay"><span class="item-cat">Training</span><h3>Advanced Techniques</h3></div>
+          </div>
+
+          <div class="mosaic-item reveal-on-scroll">
+            <img src="img/gallery/t9.JPG" alt="Training" loading="lazy">
+            <div class="item-overlay"><span class="item-cat">Training</span><h3>Empowerment</h3></div>
+          </div>
+
+          <div class="mosaic-item reveal-on-scroll">
+            <img src="img/gallery/c3.JPG" alt="Community Event" loading="lazy">
+            <div class="item-overlay"><span class="item-cat">Community</span><h3>Unity</h3></div>
+          </div>
+
+          <div class="mosaic-item reveal-on-scroll">
+            <img src="img/gallery/t10.JPG" alt="Discussion" loading="lazy">
+            <div class="item-overlay"><span class="item-cat">Training</span><h3>Open Discussion</h3></div>
+          </div>
+
+          <div class="mosaic-item reveal-on-scroll">
+            <img src="img/gallery/t11.JPG" alt="Field Work" loading="lazy">
+            <div class="item-overlay"><span class="item-cat">Training</span><h3>Field Work</h3></div>
+          </div>
+
+          <div class="mosaic-item reveal-on-scroll">
+            <img src="img/gallery/t12.JPG" alt="Closing Ceremony" loading="lazy">
+            <div class="item-overlay"><span class="item-cat">Training</span><h3>Closing Ceremony</h3></div>
+          </div>
+
+          <div class="mosaic-item reveal-on-scroll" data-type="video" data-video-src="path/to/video.mp4">
+            <img src="img/gallery/video-thumb.jpg" alt="Video Thumbnail" loading="lazy">
+            <div class="play-button-overlay">▶</div>
+            <div class="item-overlay"><span class="item-cat">Video</span><h3>Field Report 2024</h3></div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div class="cinema-lightbox" id="cinema-lightbox">
+    <div class="cinema-backdrop"></div>
+    <div class="cinema-container">
+      <button class="cinema-close">×</button>
+      <button class="cinema-nav prev">‹</button>
+      
+      <div class="cinema-media-wrapper">
+        <img src="" class="cinema-img" alt="">
+        <video src="" class="cinema-video" controls hidden></video>
+      </div>
+
+      <div class="cinema-info">
+        <h4 class="cinema-title"></h4>
+        <span class="cinema-cat"></span>
+      </div>
+
+      <button class="cinema-nav next">›</button>
     </div>
   </div>
-
-</header>
-
-  <!-- PAGE-SPECIFIC CONTENT GOES HERE -->
-  <main class="page">
-
-  <!-- HERO -->
-  <section class="page-hero">
-    <p class="page-kicker">
-      <span class="lang-en">From Our Centre &amp; Community</span>
-      <span class="lang-hi">हमारे केंद्र और समुदाय से</span>
-    </p>
-
-    <h1>
-      <span class="lang-en">Gallery</span>
-      <span class="lang-hi">गैलरी</span>
-    </h1>
-
-    <p class="page-intro">
-      <span class="lang-en">
-        A glimpse into everyday moments at NISA — training sessions, community meetings, women at work and quiet celebrations of progress.
-      </span>
-      <span class="lang-hi">
-        नीसा के रोज़मर्रा के पलों की झलक — प्रशिक्षण सत्र, सामुदायिक बैठकें, काम करती महिलाएँ और प्रगति के छोटे-छोटे उत्सव।
-      </span>
-    </p>
-  </section>
-
-  <!-- GALLERY GRID -->
-  <section class="page-section">
-    <h2>
-      <span class="lang-en">Photos From the Field</span>
-      <span class="lang-hi">मैदान और केंद्र की तस्वीरें</span>
-    </h2>
-
-    <p class="lang-en">
-      Click on any photo to view it in full size. Use the left/right arrows or your keyboard arrow keys to move between images.
-    </p>
-    <p class="lang-hi">
-      किसी भी फोटो पर क्लिक करके उसे पूरा देखें। अगली–पिछली फोटो पर जाने के लिए बाएँ/दाएँ तीर या कीबोर्ड की एरो कुंजियाँ इस्तेमाल करें।
-    </p>
-
-    <div class="gallery-grid" id="gallery-grid">
-      <!-- EXAMPLE ITEMS – replace src with your real images -->
-      <div class="gallery-item">
-        <figure>
-          <img src="img/gallery/training-1.jpg" alt="Women at sewing training" />
-          <figcaption>
-            <span class="lang-en">Sewing training batch at our centre.</span>
-            <span class="lang-hi">हमारे केंद्र में सिलाई प्रशिक्षण का बैच।</span>
-          </figcaption>
-        </figure>
-      </div>
-
-      <div class="gallery-item">
-        <figure>
-          <img src="img/gallery/crochet-1.jpg" alt="Women practicing crochet" />
-          <figcaption>
-            <span class="lang-en">Women practicing crochet during afternoon sessions.</span>
-            <span class="lang-hi">दोपहर की कक्षा में क्रोशे का अभ्यास करती महिलाएँ।</span>
-          </figcaption>
-        </figure>
-      </div>
-
-      <div class="gallery-item">
-        <figure>
-          <img src="img/gallery/meeting-1.jpg" alt="Community meeting with women" />
-          <figcaption>
-            <span class="lang-en">Community conversation circle on work and safety.</span>
-            <span class="lang-hi">काम और सुरक्षा पर सामुदायिक चर्चा सर्कल।</span>
-          </figcaption>
-        </figure>
-      </div>
-
-      <div class="gallery-item">
-        <figure>
-          <img src="img/gallery/literacy-1.jpg" alt="Literacy circle at the centre" />
-          <figcaption>
-            <span class="lang-en">Literacy circle for women who returned to learning.</span>
-            <span class="lang-hi">दोबारा पढ़ाई शुरू करने वाली महिलाओं के लिए साक्षरता सर्कल।</span>
-          </figcaption>
-        </figure>
-      </div>
-
-      <!-- Add as many as you want, same structure -->
-      <!--
-      <div class="gallery-item">
-        <figure>
-          <img src="img/gallery/your-photo.jpg" alt="Short alt text" />
-          <figcaption>
-            <span class="lang-en">English caption.</span>
-            <span class="lang-hi">हिंदी कैप्शन।</span>
-          </figcaption>
-        </figure>
-      </div>
-      -->
-    </div>
-  </section>
-
-  <!-- LIGHTBOX MODAL -->
-  <div class="lightbox" id="lightbox" aria-hidden="true">
-    <div class="lightbox-backdrop" data-lightbox-close></div>
-
-    <div class="lightbox-inner" role="dialog" aria-modal="true">
-      <button class="lightbox-close" type="button" aria-label="Close" data-lightbox-close>×</button>
-
-      <button class="lightbox-nav lightbox-prev" type="button" aria-label="Previous image">
-        ‹
-      </button>
-      <button class="lightbox-nav lightbox-next" type="button" aria-label="Next image">
-        ›
-      </button>
-
-      <div class="lightbox-content">
-        <img id="lightbox-image" src="" alt="" />
-        <p id="lightbox-caption"></p>
-      </div>
-    </div>
-  </div>
-
-</main>
-
 
   <!-- FOOTER -->
   <footer class="main-footer">

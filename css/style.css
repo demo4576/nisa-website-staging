@@ -933,13 +933,247 @@ html[data-lang="en"] .lang-hi, html[data-lang="hi"] .lang-en, html:not([data-lan
 }
 
 /* =========================================
-   7. GALLERY & LIGHTBOX
+   7. NEW MOSAIC GALLERY & LIGHTBOX
    ========================================= */
-.gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 1rem; margin-top: 1.2rem; }
-.gallery-item img { width: 100%; height: auto; display: block; cursor: pointer; transition: transform 0.18s ease-out; }
+
+/* --- Header & Filters --- */
+.gallery-header {
+  padding: 8rem 1.5rem 2rem;
+  text-align: center;
+  background: linear-gradient(180deg, #fff 0%, var(--bg) 100%);
+}
+
+.gallery-intro h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  margin-bottom: 0.5rem;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.gallery-intro p {
+  color: var(--muted);
+  max-width: 600px;
+  margin: 0 auto 2.5rem;
+  font-size: 1.1rem;
+}
+
+.gallery-filters {
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  background: transparent;
+  border: 1px solid var(--border-soft);
+  padding: 0.5rem 1.2rem;
+  border-radius: 99px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--muted);
+  transition: all 0.3s ease;
+}
+
+.filter-btn:hover, .filter-btn.active {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+  transform: translateY(-2px);
+}
+
+/* --- 7. AUTOMATIC MASONRY GRID (NATURAL SHAPES) --- */
+.mosaic-section {
+  padding: 2rem 1.5rem 6rem;
+  max-width: 1400px; 
+  margin: 0 auto;
+}
+
+/* This replaces display: grid with columns */
+.mosaic-grid {
+  opacity: 0;
+  transition: opacity 0.6s ease-out;
+  column-count: 4; 
+  column-gap: 5px; 
+  width: 100%;
+}
+
+.mosaic-grid.shuffled-loaded {
+  opacity: 1;
+}
+
+.mosaic-item {
+  position: relative;
+  background: #000;
+  
+  /* CRITICAL: Prevents item from splitting across columns */
+  break-inside: avoid; 
+  
+  /* Adds gap at the bottom of each item */
+  margin-bottom: 5px;
+  break-inside: avoid; 
+  display: inline-block; 
+  
+  cursor: pointer;
+  overflow: hidden;
+  
+  /* Reset shape constraints so images are not squares */
+  border-radius: 0;
+  aspect-ratio: auto; 
+  display: inline-block; /* Helps ensures stability in columns */
+
+  transform: translateZ(0); 
+  will-change: transform, opacity;
+  content-visibility: auto; 
+  contain-intrinsic-size: 300px;
+  width: 100%;
+}
+
+/* Image fills width, height adjusts naturally */
+.mosaic-item img {
+  display: block; 
+  width: 100%;
+  height: auto; /* Maintains original aspect ratio */
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.3s ease;
+  opacity: 0.95;
+}
+
+/* Hover Effects */
+.mosaic-item:hover img {
+  transform: scale(1.05);
+  opacity: 0.7;
+}
+
+/* Text Overlay */
+.item-overlay {
+  position: absolute;
+  bottom: 0; left: 0; width: 100%;
+  padding: 1.5rem;
+  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+  transform: translateY(20px);
+  opacity: 0;
+  transition: all 0.4s ease;
+  pointer-events: none;
+}
+.mosaic-item:hover .item-overlay { transform: translateY(0); opacity: 1; }
+
+.item-cat {
+  display: inline-block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--accent);
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+}
+
+.item-overlay h3 {
+  color: #fff; margin: 0; font-size: 1.2rem; line-height: 1.2;
+}
+
+/* Video Play Button */
+.play-button-overlay {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%) scale(0.8);
+  width: 50px; height: 50px;
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(5px);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-size: 1.2rem;
+  border: 1px solid rgba(255,255,255,0.4);
+  opacity: 0.8;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+.mosaic-item:hover .play-button-overlay {
+  transform: translate(-50%, -50%) scale(1.1);
+  background: var(--accent);
+  border-color: var(--accent);
+  opacity: 1;
+}
+
+.disable-hover,
+.disable-hover * {
+  pointer-events: none !important;
+}
+
+/* --- RESPONSIVE COLUMNS --- */
+@media (max-width: 1200px) { .mosaic-grid { column-count: 3; } }
+@media (max-width: 768px) { .mosaic-grid { column-count: 2; } }
+@media (max-width: 480px) { .mosaic-grid { column-count: 1; } }
+
+/* --- New Cinema Lightbox --- */
+.cinema-lightbox {
+  position: fixed; inset: 0; z-index: 9999;
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; visibility: hidden;
+  transition: all 0.4s ease;
+}
+
+.cinema-lightbox.active {
+  opacity: 1; visibility: visible;
+}
+
+.cinema-backdrop {
+  position: absolute; inset: 0;
+  background: rgba(5, 10, 20, 0.95); /* Deep dark blue/black */
+  backdrop-filter: blur(10px);
+}
+
+.cinema-container {
+  position: relative; z-index: 2;
+  width: 100%; height: 100%;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+}
+
+.cinema-media-wrapper {
+  max-width: 90%; max-height: 80vh;
+  position: relative;
+  box-shadow: 0 0 50px rgba(0,0,0,0.5);
+  border-radius: 0; 
+  
+  overflow: hidden;
+}
+
+.cinema-img, .cinema-video {
+  display: block;
+  max-width: 100%; max-height: 80vh;
+  object-fit: contain;
+}
+
+.cinema-info {
+  margin-top: 1rem;
+  text-align: center;
+  color: #fff;
+}
+
+.cinema-title { font-size: 1.2rem; margin: 0 0 0.3rem; }
+.cinema-cat { color: var(--accent); text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; }
+
+/* Buttons */
+.cinema-close, .cinema-nav {
+  position: absolute;
+  background: transparent; border: none;
+  color: rgba(255,255,255,0.6);
+  cursor: pointer; transition: color 0.2s;
+}
+.cinema-close:hover, .cinema-nav:hover { color: #fff; }
+
+.cinema-close { top: 2rem; right: 2rem; font-size: 2.5rem; line-height: 1; }
+.cinema-nav { top: 50%; font-size: 3rem; transform: translateY(-50%); padding: 1rem; }
+.prev { left: 1rem; }
+.next { right: 1rem; }
+
+@media (max-width: 768px) {
+  .cinema-nav { display: none; } /* Swipe support would be ideal here */
+}
 .gallery-item img:hover { transform: scale(1.03); }
 
-.lightbox { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.82); display: none; align-items: center; justify-content: center; z-index: 60; }
 .lightbox.open { display: flex; }
 .lightbox-content { background-color: #000; border-radius: 16px; padding: 0.75rem 0.75rem 0.9rem; display: flex; flex-direction: column; align-items: center; }
 .lightbox-content img { max-width: 82vw; max-height: 70vh; object-fit: contain; border-radius: 10px; }

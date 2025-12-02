@@ -817,3 +817,181 @@ document.addEventListener("DOMContentLoaded", () => {
 
     scrollElements.forEach(el => scrollObserver.observe(el));
   }
+
+  /* =========================================
+   22. NEW MOSAIC GALLERY & LIGHTBOX LOGIC
+   ========================================= */
+(function setupNewGallery() {
+  const items = document.querySelectorAll('.mosaic-item');
+  const lightbox = document.getElementById('cinema-lightbox');
+  if (!items.length || !lightbox) return;
+
+  const lbImg = lightbox.querySelector('.cinema-img');
+  const lbVideo = lightbox.querySelector('.cinema-video');
+  const lbTitle = lightbox.querySelector('.cinema-title');
+  const lbCat = lightbox.querySelector('.cinema-cat');
+  const closeBtn = lightbox.querySelector('.cinema-close');
+  const nextBtn = lightbox.querySelector('.next');
+  const prevBtn = lightbox.querySelector('.prev');
+  const backdrop = lightbox.querySelector('.cinema-backdrop');
+
+  // Convert NodeList to Array for indexing
+  // Only include visible items if you implement filtering later
+  let visibleItems = Array.from(items); 
+  let currentIndex = 0;
+
+  // --- 1. OPEN LIGHTBOX ---
+  function openLightbox(index) {
+    currentIndex = index;
+    const item = visibleItems[currentIndex];
+    const isVideo = item.hasAttribute('data-type') && item.getAttribute('data-type') === 'video';
+    
+    // Get Data
+    const title = item.querySelector('h3')?.innerText || '';
+    const cat = item.querySelector('.item-cat')?.innerText || '';
+    
+    // Set Text
+    lbTitle.innerText = title;
+    lbCat.innerText = cat;
+
+    // Handle Media Type
+    if (isVideo) {
+      const vidSrc = item.getAttribute('data-video-src');
+      lbImg.hidden = true;
+      lbVideo.hidden = false;
+      lbVideo.src = vidSrc;
+      lbVideo.play();
+    } else {
+      const imgSrc = item.querySelector('img').src;
+      lbVideo.hidden = true;
+      lbVideo.pause();
+      lbImg.hidden = false;
+      lbImg.src = imgSrc;
+    }
+
+    // Show
+    lightbox.classList.add('active');
+    document.body.style.overflow = 'hidden'; // Lock Scroll
+  }
+
+  // --- 2. CLOSE LIGHTBOX ---
+  function closeLightbox() {
+    lightbox.classList.remove('active');
+    lbVideo.pause();
+    lbVideo.src = ""; // Reset
+    document.body.style.overflow = '';
+  }
+
+  // --- 3. NAVIGATION ---
+  function nextSlide() {
+    let newIndex = currentIndex + 1;
+    if (newIndex >= visibleItems.length) newIndex = 0;
+    openLightbox(newIndex);
+  }
+
+  function prevSlide() {
+    let newIndex = currentIndex - 1;
+    if (newIndex < 0) newIndex = visibleItems.length - 1;
+    openLightbox(newIndex);
+  }
+
+  // --- 4. EVENT LISTENERS ---
+  items.forEach((item, index) => {
+    item.addEventListener('click', () => openLightbox(index));
+  });
+
+  closeBtn.addEventListener('click', closeLightbox);
+  backdrop.addEventListener('click', closeLightbox);
+  nextBtn.addEventListener('click', (e) => { e.stopPropagation(); nextSlide(); });
+  prevBtn.addEventListener('click', (e) => { e.stopPropagation(); prevSlide(); });
+
+  // Keyboard Nav
+  document.addEventListener('keydown', (e) => {
+    if (!lightbox.classList.contains('active')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowRight') nextSlide();
+    if (e.key === 'ArrowLeft') prevSlide();
+  });
+
+  // --- 5. SIMPLE FILTERING (Optional) ---
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Remove active class
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const filterValue = btn.getAttribute('data-filter');
+
+      items.forEach(item => {
+        // Simple text matching for demo. 
+        // In production, add data-category="training" to HTML items
+        const itemCat = item.querySelector('.item-cat')?.innerText.toLowerCase();
+        const isVideo = item.getAttribute('data-type') === 'video';
+
+        let match = false;
+        if (filterValue === 'all') match = true;
+        else if (filterValue === 'video' && isVideo) match = true;
+        else if (itemCat && itemCat.includes(filterValue)) match = true;
+
+        if (match) {
+          item.style.display = 'block';
+          // Re-trigger animation if needed
+          item.style.opacity = '1';
+          item.style.transform = 'translateY(0)';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+      
+      // Update the array for lightbox navigation based on visibility
+      visibleItems = Array.from(document.querySelectorAll('.mosaic-item')).filter(el => el.style.display !== 'none');
+    });
+  });
+
+})();
+
+/* =========================================
+   23. RANDOMIZE GALLERY LAYOUT
+   ========================================= */
+(function shuffleMosaic() {
+  const grid = document.getElementById('mosaic-grid');
+  if (!grid) return;
+
+  // 1. Get all items as an array
+  const items = Array.from(grid.children);
+
+  // 2. Fisher-Yates Shuffle Algorithm
+  for (let i = items.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [items[i], items[j]] = [items[j], items[i]];
+  }
+
+  // 3. Re-append items to grid in new order
+  // (Appending an element that is already in the DOM moves it)
+  items.forEach(item => grid.appendChild(item));
+
+  // 4. Reveal the grid (See CSS step below)
+  grid.classList.add('shuffled-loaded');
+})();
+
+/* =========================================
+   24. PERFORMANCE: DISABLE HOVER ON SCROLL
+   ========================================= */
+(function disableHoverOnScroll() {
+  let timer;
+  window.addEventListener('scroll', function() {
+    // 1. Add class to body when scrolling starts
+    if (!document.body.classList.contains('disable-hover')) {
+      document.body.classList.add('disable-hover');
+    }
+    
+    // 2. Clear timer if it exists
+    clearTimeout(timer);
+    
+    // 3. Set timer to remove class 200ms after scrolling stops
+    timer = setTimeout(function() {
+      document.body.classList.remove('disable-hover');
+    }, 200);
+  }, { passive: true });
+})();

@@ -1819,7 +1819,7 @@ body.overlap-text .header-side {
   max-width: 1080px;
   margin: 0 auto;
   background: #ffffff;
-  border-radius: 24px;
+  border-radius: 0px;
   box-shadow: 0 20px 50px rgba(16, 34, 58, 0.05);
   overflow: hidden;
   display: grid;
@@ -2610,3 +2610,379 @@ body.site-loaded .fade-in-delayed {
 .stagger-parent.is-visible .stagger-child:nth-child(2) { transition-delay: 0.2s; }
 .stagger-parent.is-visible .stagger-child:nth-child(3) { transition-delay: 0.3s; }
 .stagger-parent.is-visible .stagger-child:nth-child(4) { transition-delay: 0.4s; }
+
+/* =========================================
+   NEW: GET INVOLVED MINIMALIST STYLES
+   ========================================= */
+
+/* --- 1. Sticky Split Layout (Editorial Vibe) --- */
+.sticky-split-section {
+  padding: 6rem 1.5rem;
+  border-top: 1px solid var(--border-soft);
+  background: #fff;
+}
+
+.sticky-split-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr; /* Left is smaller, Right is wider */
+  gap: 4rem;
+  align-items: start;
+}
+
+.sticky-col {
+  position: sticky;
+  top: 120px; /* Sticks 120px from top */
+  padding-right: 2rem;
+}
+
+.sticky-title {
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  line-height: 1.1;
+  color: var(--text);
+  margin: 0;
+}
+
+/* --- 2. Role Items (Minimal List) --- */
+.role-item {
+  display: flex;
+  gap: 1.5rem;
+  padding: 2.5rem 0;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  transition: transform 0.3s ease;
+}
+
+.role-item:hover {
+  transform: translateX(10px); /* Subtle nudge right on hover */
+}
+
+.role-num {
+  font-family: monospace;
+  font-size: 1rem;
+  color: var(--primary); /* Blue accent number */
+  padding-top: 5px;
+}
+
+.role-content h3 {
+  font-size: 1.5rem;
+  margin: 0 0 0.8rem 0;
+  color: var(--text);
+}
+
+.role-content p {
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  max-width: 500px;
+}
+
+.role-tags {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.role-tags span {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background: var(--bg);
+  padding: 4px 10px;
+  border-radius: 4px;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+/* --- 4. Application CTA (Minimalist Card) --- */
+.application-section {
+  padding: 0 1.5rem 6rem; /* Bottom padding to separate from next section */
+  background: #f8fafc; /* Matches the internship background for seamless flow */
+}
+
+.app-card {
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 4rem;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.04);
+  border: 1px solid rgba(0,0,0,0.04);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorative background blob */
+.app-card::before {
+  content: "";
+  position: absolute;
+  top: -50%; right: -20%;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, var(--primary-soft) 0%, transparent 70%);
+  opacity: 0.6;
+  z-index: 0;
+}
+
+.app-card-content, .app-card-visual {
+  position: relative;
+  z-index: 1;
+}
+
+.app-kicker {
+  display: block;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--accent);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.app-card h3 {
+  font-size: 2.5rem;
+  margin: 0 0 1rem 0;
+  color: var(--text);
+  font-weight: 700;
+}
+
+.app-card p {
+  font-size: 1.1rem;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  max-width: 500px;
+}
+
+.app-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.btn-text {
+  color: var(--text);
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.2s;
+}
+.btn-text:hover { color: var(--primary); }
+
+/* =========================================
+   NEW: UNIFIED & MINIMAL GET INVOLVED
+   ========================================= */
+
+/* --- 1. Sticky Split Layout (Refined) --- */
+.sticky-split-section {
+  padding: 6rem 1.5rem;
+  border-top: 1px solid var(--border-soft);
+  background: #fff;
+}
+
+.sticky-split-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.8fr; /* Right side wider for content */
+  gap: 5rem;
+  align-items: start;
+}
+
+.sticky-col {
+  position: sticky;
+  top: 130px; 
+  padding-right: 2rem;
+}
+
+.sticky-title {
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  line-height: 1.1;
+  color: var(--text);
+  margin: 0;
+}
+
+/* --- 2. Unified Role Items --- */
+.role-item {
+  background: #ffffff;
+  /* Very subtle separation instead of heavy boxes */
+  border-top: 1px solid rgba(0,0,0,0.06);
+  padding: 3rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transition: all 0.3s ease;
+}
+
+/* First item border fix */
+.role-item:first-child { border-top: none; padding-top: 0; }
+
+.role-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+/* BADGES - The Key to differentiation */
+.role-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 6px 12px;
+  border-radius: 6px;
+}
+
+/* Volunteer: Orange Accent */
+.badge-vol {
+  background: var(--accent-light); /* Soft Orange Bg */
+  color: var(--accent);            /* Orange Text */
+}
+
+/* Internship: Pink Accent */
+.badge-intern {
+  background: #fff0f1;             /* Soft Pink Bg */
+  color: var(--tertiary);         /* Pink Text */
+}
+
+.role-loc {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.role-content h3 {
+  font-size: 1.6rem;
+  margin: 0 0 0.8rem 0;
+  color: var(--text);
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+.role-content p {
+  font-size: 1.05rem;
+  color: var(--muted);
+  line-height: 1.7;
+  max-width: 600px;
+  margin: 0;
+}
+
+/* Hover Effect: Simple Title Highlight */
+.role-item:hover h3 {
+  color: var(--primary);
+}
+
+/* --- 3. Minimal Application Section (No QR) --- */
+.apply-minimal-section {
+  padding: 6rem 1.5rem;
+  background: var(--bg); /* Light grey background */
+  display: flex;
+  justify-content: center;
+}
+
+.apply-box {
+  background: #ffffff;
+  width: 100%;
+  max-width: 900px;
+  padding: 4rem;
+  text-align: center;
+  border-radius: 20px;
+  border: 1px solid var(--border-soft);
+  box-shadow: 0 20px 50px rgba(16, 34, 58, 0.04);
+}
+
+.apply-icon {
+  width: 64px; height: 64px;
+  background: var(--primary-soft);
+  color: var(--primary);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 1.5rem;
+}
+
+.apply-box h2 {
+  font-size: 2.2rem;
+  margin: 0 0 1rem 0;
+  color: var(--text);
+}
+
+.apply-desc {
+  font-size: 1.15rem;
+  color: var(--muted);
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto 2.5rem;
+}
+
+/* Action Buttons Group */
+.apply-btn-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.btn-lg {
+  padding: 0.8rem 2rem;
+  font-size: 1.05rem;
+}
+
+.or-divider {
+  font-size: 0.9rem;
+  color: var(--muted);
+  font-style: italic;
+}
+
+.text-link-bold {
+  font-weight: 700;
+  color: var(--text);
+  text-decoration: none;
+  border-bottom: 2px solid var(--primary-soft);
+  transition: all 0.2s;
+}
+
+.text-link-bold:hover {
+  color: var(--primary);
+  border-bottom-color: var(--primary);
+}
+
+.apply-note {
+  margin-top: 2rem;
+  font-size: 0.85rem;
+  color: #94a3b8;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 900px) {
+  .sticky-split-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  .sticky-col {
+    position: relative;
+    top: 0;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--border-soft);
+    padding-bottom: 2rem;
+  }
+  /* On mobile, allow the Key to sit horizontally */
+  .sticky-col > div { display: flex; flex-direction: row; gap: 1rem; align-items: center; }
+  
+  .apply-box { padding: 2.5rem 1.5rem; }
+  .apply-btn-group { flex-direction: column; gap: 1rem; }
+}
+
+/* Mobile Response */
+@media (max-width: 900px) {
+  .app-card {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    padding: 2.5rem;
+    text-align: center;
+  }
+  .app-card p { margin-left: auto; margin-right: auto; }
+  .app-actions { justify-content: center; }
+  .app-card::before { top: 0; right: 0; width: 100%; height: 100%; }
+}

@@ -796,6 +796,61 @@ document.addEventListener("DOMContentLoaded", () => {
   })();
 
   /* =========================================
+   WORK PAGE — JOURNEY TIMELINE (LINE FILL + ACTIVE STEPS)
+   ========================================= */
+(function setupJourneyTimeline() {
+  const container = document.querySelector('.process-container');
+  const fill = document.querySelector('.process-line-fill');
+  const steps = Array.from(document.querySelectorAll('.process-step'));
+
+  if (!container || !fill || steps.length === 0) return;
+
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReducedMotion) fill.style.transition = 'none';
+
+  const clamp = (n, min, max) => Math.min(max, Math.max(min, n));
+  let ticking = false;
+
+  function update() {
+    ticking = false;
+
+    const rect = container.getBoundingClientRect();
+    const viewportH = window.innerHeight || 800;
+
+    // “Focus line” a bit above center feels natural for reading
+    const focusY = viewportH * 0.35;
+
+    // Fill grows as the focus line travels through the container
+    const px = clamp(focusY - rect.top, 0, rect.height);
+    const progress = rect.height > 0 ? (px / rect.height) : 0;
+    fill.style.height = `${Math.round(progress * 1000) / 10}%`;
+
+    // Step states
+    steps.forEach(step => {
+      const s = step.getBoundingClientRect();
+      const centerY = s.top + s.height / 2;
+
+      const reached = centerY <= focusY;
+      const current = s.top <= focusY && s.bottom >= focusY;
+
+      step.classList.toggle('is-active', reached);
+      step.classList.toggle('is-current', current);
+    });
+  }
+
+  function requestTick() {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(update);
+  }
+
+  window.addEventListener('scroll', requestTick, { passive: true });
+  window.addEventListener('resize', requestTick);
+  requestTick();
+})();
+
+
+  /* =========================================
      21. GENERIC SCROLL REVEAL (For Donate Page)
      ========================================= */
   const scrollElements = document.querySelectorAll(".reveal-on-scroll");

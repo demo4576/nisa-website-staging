@@ -2030,13 +2030,11 @@ body.overlap-text .header-side {
 .social-icon-btn.whatsapp:hover {
   background: #25D366;
   border-color: #25D366;
-  color: #fff;
 }
 
 .social-icon-btn.threads:hover {
   background: #000;
   border-color: #000;
-  color: #fff;
 }
 
 .social-icon-btn.youtube:hover {

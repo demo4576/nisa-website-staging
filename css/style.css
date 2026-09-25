@@ -2027,6 +2027,18 @@ body.overlap-text .header-side {
   box-shadow: 0 10px 25px rgba(10, 102, 194, 0.3);
 }
 
+.social-icon-btn.whatsapp:hover {
+  background: #25D366;
+  border-color: #25D366;
+  color: #fff;
+}
+
+.social-icon-btn.threads:hover {
+  background: #000;
+  border-color: #000;
+  color: #fff;
+}
+
 .social-icon-btn.youtube:hover {
   background-color: #FF0000;
   box-shadow: 0 10px 25px rgba(255, 0, 0, 0.3);
